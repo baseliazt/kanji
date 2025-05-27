@@ -3,33 +3,16 @@ import {
   OpenAPIRegistry,
   OpenApiGeneratorV3,
 } from "@asteasolutions/zod-to-openapi";
-import { CreateUserRequest, CreateUserResponse } from "@/schemas/user";
+import { userRegistry } from "@/schemas/users.openapi";
+import { postRegistry } from "@/schemas/posts.openapi";
 
 const registry = new OpenAPIRegistry();
 
-registry.registerPath({
-  method: "post",
-  path: "/api/users",
-  request: {
-    body: {
-      content: {
-        "application/json": {
-          schema: CreateUserRequest,
-        },
-      },
-    },
-  },
-  responses: {
-    201: {
-      description: "User created",
-      content: {
-        "application/json": {
-          schema: CreateUserResponse,
-        },
-      },
-    },
-  },
-});
+const registryItems = [userRegistry, postRegistry];
+
+for (const registryItem of registryItems) {
+  registry.registerPath(registryItem);
+}
 
 export const generator = new OpenApiGeneratorV3(registry.definitions);
 export const openApiDocument = generator.generateDocument({
