@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "next lint",
     "export:openapi": "tsx src/scripts/export-openapi.ts",
+    "predev": "tsx src/scripts/fetch-sheets.ts",
     "generate:types": "openapi-typescript src/docs/openapi.json -o src/types/openapi.d.ts"
   },
   "dependencies": {
