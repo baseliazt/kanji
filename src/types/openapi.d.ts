@@ -52,10 +52,77 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
+    "/api/posts": {
+        parameters: {
+            query?: never;
+            header?: never;
+            path?: never;
+            cookie?: never;
+        };
+        get?: never;
+        put?: never;
+        post: {
+            parameters: {
+                query?: never;
+                header?: never;
+                path?: never;
+                cookie?: never;
+            };
+            requestBody?: {
+                content: {
+                    "application/json": components["schemas"]["CreatePostRequest"];
+                };
+            };
+            responses: {
+                /** @description Post created */
+                201: {
+                    headers: {
+                        [name: string]: unknown;
+                    };
+                    content: {
+                        "application/json": components["schemas"]["CreatePostResponse"];
+                    };
+                };
+            };
+        };
+        delete?: never;
+        options?: never;
+        head?: never;
+        patch?: never;
+        trace?: never;
+    };
 }
 export type webhooks = Record<string, never>;
 export interface components {
-    schemas: never;
+    schemas: {
+        Comment: {
+            /** @example c1 */
+            id: string;
+            /** @example Nice post! */
+            content: string;
+            /** @example user123 */
+            author: string;
+        };
+        Post: {
+            /** @example p1 */
+            id: string;
+            /** @example My First Post */
+            title: string;
+            /** @example Hello, world! */
+            content: string;
+            /** @description List of comments */
+            comments: components["schemas"]["Comment"][];
+        };
+        CreatePostResponse: {
+            post: components["schemas"]["Post"];
+        };
+        CreatePostRequest: {
+            /** @example New Post */
+            title: string;
+            /** @example Content here... */
+            content: string;
+        };
+    };
     responses: never;
     parameters: never;
     requestBodies: never;

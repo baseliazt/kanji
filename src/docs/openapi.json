@@ -5,12 +5,96 @@
     "version": "1.0.0"
   },
   "components": {
-    "schemas": {},
+    "schemas": {
+      "Comment": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "c1"
+          },
+          "content": {
+            "type": "string",
+            "example": "Nice post!"
+          },
+          "author": {
+            "type": "string",
+            "example": "user123"
+          }
+        },
+        "required": [
+          "id",
+          "content",
+          "author"
+        ]
+      },
+      "Post": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "example": "p1"
+          },
+          "title": {
+            "type": "string",
+            "example": "My First Post"
+          },
+          "content": {
+            "type": "string",
+            "example": "Hello, world!"
+          },
+          "comments": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Comment"
+            },
+            "description": "List of comments"
+          }
+        },
+        "required": [
+          "id",
+          "title",
+          "content",
+          "comments"
+        ]
+      },
+      "CreatePostResponse": {
+        "type": "object",
+        "properties": {
+          "post": {
+            "$ref": "#/components/schemas/Post"
+          }
+        },
+        "required": [
+          "post"
+        ]
+      },
+      "CreatePostRequest": {
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "example": "New Post"
+          },
+          "content": {
+            "type": "string",
+            "example": "Content here..."
+          }
+        },
+        "required": [
+          "title",
+          "content"
+        ]
+      }
+    },
     "parameters": {}
   },
   "paths": {
     "/api/users": {
       "post": {
+        "tags": [
+          "Users"
+        ],
         "requestBody": {
           "content": {
             "application/json": {
@@ -57,6 +141,34 @@
                     "name",
                     "email"
                   ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/posts": {
+      "post": {
+        "tags": [
+          "Posts"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreatePostRequest"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Post created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CreatePostResponse"
                 }
               }
             }
