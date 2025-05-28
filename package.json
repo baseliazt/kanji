@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "generate:sheets":"tsx src/scripts/fetch-sheets.ts",
+    "generate:sheets": "tsx src/scripts/fetch-sheets.ts",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
@@ -14,6 +14,7 @@
   "dependencies": {
     "@asteasolutions/zod-to-openapi": "^7.3.2",
     "next": "15.3.2",
+    "papaparse": "^5.5.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "swagger-ui-dist": "^5.22.0",
@@ -23,6 +24,7 @@
     "@eslint/eslintrc": "^3",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
+    "@types/papaparse": "^5.3.16",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "@types/swagger-ui-dist": "^3.30.5",
