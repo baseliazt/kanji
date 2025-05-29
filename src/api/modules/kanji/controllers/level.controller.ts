@@ -1,5 +1,5 @@
 import { NextRequest } from "next/server";
-import { getLevelListRequestDTO } from "../dto/level_list.get";
+import { getLevelListRequestDTO } from "../dtos/level_list.get";
 
 export class LevelController {
   constructor() {}

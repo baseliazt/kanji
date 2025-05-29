@@ -1,9 +1,9 @@
 import { z } from "zod";
-import { LevelEntities } from "../entities";
+import { KanjiSchema } from "../schemas/schema";
 
 export const getLevelListRequestDTO = z.object({
   page: z.number().optional(),
   limit: z.number().optional(),
 });
 
-export type GetLevelListResponseDTO = LevelEntities;
+export type GetLevelListResponseDTO = KanjiSchema;

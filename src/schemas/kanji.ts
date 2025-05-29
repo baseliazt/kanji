@@ -6,6 +6,7 @@ extendZodWithOpenApi(z);
 // VocabularyMeaning
 export const VocabularyMeaningSchema = z
   .object({
+    id: z.string().openapi({ example: "1" }),
     ["id-ID"]: z
       .string()
       .openapi({ example: "satu", description: "Indonesia translation" }),
@@ -23,6 +24,9 @@ export const VocabularySchema = z
     kana: z
       .string()
       .openapi({ example: "ひと", description: "Kunyomi in hiragana" }),
+    romaji: z
+      .string()
+      .openapi({ example: "hito", description: "Romaji" }),
     meaning: VocabularyMeaningSchema,
     image_url: z.string().nullable().openapi({ example: null }),
   })

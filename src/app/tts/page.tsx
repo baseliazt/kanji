@@ -2,7 +2,7 @@
 
 export default function TTSPlayPage() {
   const play = async () => {
-    const res = await fetch(`/api/tts?text=午前&lang=ja`);
+    const res = await fetch("/api/tts?text=午前&lang=ja");
     if (!res.ok) {
       alert("Gagal memuat suara");
       return;
@@ -21,7 +21,7 @@ export default function TTSPlayPage() {
         onClick={play}
         className="bg-blue-600 text-white px-4 py-2 rounded"
       >
-        Putar "Selamat pagi"
+        {'Putar "Selamat pagi"'}
       </button>
     </div>
   );

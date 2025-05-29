@@ -1,0 +1,82 @@
+import fs from "fs";
+import path from "path";
+import Papa from "papaparse";
+
+// === Konfigurasi Folder ===
+const inputDir = path.join(__dirname, "../../data/csv");
+
+function getOutputDir(moduleName: string): string {
+  const snakeName = toSnakeCase(moduleName);
+  return path.join(__dirname, `../../api/modules/${snakeName}/schemas`);
+}
+
+// === Fungsi Utama ===
+function generateSchemas() {
+  const csvFiles = getCsvFiles(inputDir);
+
+  csvFiles.forEach((file) => {
+    const filePath = path.join(inputDir, file);
+    const baseName = path.basename(file, ".csv");
+
+    const rows = parseCsv(filePath);
+    if (!rows || rows.length === 0) {
+      console.warn(`⚠️ Skipping ${file}, no data or headers found.`);
+      return;
+    }
+
+    const headers = Object.keys(rows[0]);
+    const typeName = toPascalCase(baseName);
+    const outputDir = getOutputDir(baseName);
+    const outputPath = path.join(outputDir, "schema.ts");
+
+    const interfaceStr = createInterface(typeName, headers);
+    ensureDir(outputDir);
+    fs.writeFileSync(outputPath, interfaceStr);
+    console.log(`✅ Generated: ${outputPath}`);
+  });
+}
+
+// === Utils ===
+
+function getCsvFiles(dir: string): string[] {
+  return fs.readdirSync(dir).filter((f) => f.endsWith(".csv"));
+}
+
+function parseCsv(filePath: string): Record<string, string>[] {
+  const raw = fs.readFileSync(filePath, "utf8");
+  const parsed = Papa.parse<Record<string, string>>(raw, {
+    header: true,
+    skipEmptyLines: true,
+  });
+
+  return parsed.data;
+}
+
+function createInterface(name: string, fields: string[]): string {
+  const props = fields.map((f) => `  ${sanitizeField(f)}: string;`).join("\n");
+  return `export interface ${name}Schema {\n${props}\n}\n`;
+}
+
+function toPascalCase(str: string): string {
+  return str.replace(/(^\w|_\w)/g, (m) => m.replace("_", "").toUpperCase());
+}
+
+function toSnakeCase(str: string): string {
+  return str
+    .replace(/([a-z0-9])([A-Z])/g, "$1_$2")
+    .replace(/([A-Z])([A-Z][a-z])/g, "$1_$2")
+    .toLowerCase();
+}
+
+function sanitizeField(field: string): string {
+  return field.replace(/[^a-zA-Z0-9_]/g, "_");
+}
+
+function ensureDir(dir: string) {
+  if (!fs.existsSync(dir)) {
+    fs.mkdirSync(dir, { recursive: true });
+  }
+}
+
+// === Eksekusi ===
+generateSchemas();

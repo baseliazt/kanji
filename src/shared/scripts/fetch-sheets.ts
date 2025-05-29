@@ -1,20 +1,7 @@
 import fs from "fs";
 import path from "path";
 import https from "https";
-
-const SHEETS = [
-  {
-    sheetId: "1MbxxGfYj7Xjddv9xhIUD0Vb3j67Q11KE03eSRvg8muM",
-    gid: "278671287",
-    output: "sheet1.csv",
-  },
-  //   {
-  //     sheetId: "ANOTHER_SHEET_ID",
-  //     gid: "ANOTHER_GID",
-  //     output: "sheet2.csv",
-  //   },
-  //   // bisa tambah lagi objek di sini
-];
+import { SHEETS } from "../constants";
 
 function getCsvUrl(sheetId: string, gid: string) {
   return `https://docs.google.com/spreadsheets/d/${sheetId}/export?format=csv&gid=${gid}`;
@@ -76,7 +63,13 @@ async function main() {
     // Loop fetch secara berurutan
     for (const sheet of SHEETS) {
       const url = getCsvUrl(sheet.sheetId, sheet.gid);
-      const outputPath = path.join(process.cwd(), "public", sheet.output);
+      const outputPath = path.join(
+        process.cwd(),
+        "src",
+        "data",
+        "csv",
+        sheet.output
+      );
       console.log(`⏳ Fetching CSV from ${url}...`);
       await fetchCSV(url, outputPath);
     }
