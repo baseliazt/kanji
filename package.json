@@ -9,8 +9,8 @@
     "lint": "next lint",
     "fetch:sheets": "tsx src/shared/scripts/fetch-sheets.ts",
     "export:csv-types": "tsx src/shared/scripts/export-csv-types.ts",
-    "export:openapi": "tsx src/scripts/export-openapi.ts",
-    "generate:types": "openapi-typescript src/docs/openapi.json -o src/types/openapi.d.ts"
+    "export:openapi-json": "tsx src/shared/scripts/export-openapi-json.ts",
+    "export:openapi-types": "openapi-typescript src/api/docs/openapi.json -o src/api/docs/openapi.d.ts"
   },
   "dependencies": {
     "@asteasolutions/zod-to-openapi": "^7.3.2",

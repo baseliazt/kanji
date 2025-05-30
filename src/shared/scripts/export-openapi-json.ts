@@ -2,5 +2,5 @@
 import { writeFileSync } from "fs";
 import { openApiDocument } from "../lib/openapi";
 
-writeFileSync("src/docs/openapi.json", JSON.stringify(openApiDocument, null, 2));
+writeFileSync("src/api/docs/openapi.json", JSON.stringify(openApiDocument, null, 2));
 console.log("✅ openapi.json generated!");

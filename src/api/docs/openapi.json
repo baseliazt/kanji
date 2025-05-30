@@ -6,169 +6,154 @@
   },
   "components": {
     "schemas": {
-      "Comment": {
+      "Kunyomi": {
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "example": "c1"
+            "type": "number",
+            "example": 1
           },
-          "content": {
+          "kanji_id": {
             "type": "string",
-            "example": "Nice post!"
+            "example": "1"
           },
-          "author": {
+          "ja-Hira": {
             "type": "string",
-            "example": "user123"
+            "description": "Kunyomi in hiragana",
+            "example": "イチ"
+          },
+          "ja-Latn": {
+            "type": "string",
+            "description": "Romanized Japanese",
+            "example": "ichi"
           }
         },
         "required": [
           "id",
-          "content",
-          "author"
+          "kanji_id",
+          "ja-Hira",
+          "ja-Latn"
         ]
       },
-      "Post": {
+      "Onyomi": {
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "example": "p1"
+            "type": "number",
+            "example": 1
           },
-          "title": {
+          "kanji_id": {
             "type": "string",
-            "example": "My First Post"
+            "example": "1"
           },
-          "content": {
+          "ja-Kana": {
             "type": "string",
-            "example": "Hello, world!"
+            "description": "Onyomi in katakana",
+            "example": "イチ"
           },
-          "comments": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Comment"
-            },
-            "description": "List of comments"
+          "ja-Latn": {
+            "type": "string",
+            "description": "Romanized Japanese",
+            "example": "ichi"
           }
         },
         "required": [
           "id",
-          "title",
-          "content",
-          "comments"
+          "kanji_id",
+          "ja-Kana",
+          "ja-Latn"
         ]
       },
-      "CreatePostResponse": {
+      "Kanji": {
         "type": "object",
         "properties": {
-          "post": {
-            "$ref": "#/components/schemas/Post"
-          }
-        },
-        "required": [
-          "post"
-        ]
-      },
-      "CreatePostRequest": {
-        "type": "object",
-        "properties": {
-          "title": {
+          "id": {
             "type": "string",
-            "example": "New Post"
+            "example": "1"
           },
-          "content": {
+          "kanji": {
             "type": "string",
-            "example": "Content here..."
+            "description": "Kanji's example",
+            "example": "一"
+          },
+          "stroke": {
+            "type": "number",
+            "description": "Number of stroke",
+            "example": 1
+          },
+          "level": {
+            "type": "string",
+            "example": "N5"
           }
         },
         "required": [
-          "title",
-          "content"
+          "id",
+          "kanji",
+          "stroke",
+          "level"
         ]
       }
     },
     "parameters": {}
   },
   "paths": {
-    "/api/users": {
-      "post": {
+    "/api/kanji": {
+      "get": {
         "tags": [
-          "Users"
+          "Kanji"
         ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "name": {
-                    "type": "string"
-                  },
-                  "email": {
-                    "type": "string",
-                    "format": "email"
-                  }
-                },
-                "required": [
-                  "name",
-                  "email"
-                ]
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "User created",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "id": {
-                      "type": "string"
-                    },
-                    "name": {
-                      "type": "string"
-                    },
-                    "email": {
-                      "type": "string",
-                      "format": "email"
-                    }
-                  },
-                  "required": [
-                    "id",
-                    "name",
-                    "email"
-                  ]
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/posts": {
-      "post": {
-        "tags": [
-          "Posts"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/CreatePostRequest"
-              }
-            }
-          }
-        },
         "responses": {
           "201": {
             "description": "Post created",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CreatePostResponse"
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "allOf": [
+                          {
+                            "$ref": "#/components/schemas/Kanji"
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "kunyomi": {
+                                "type": "array",
+                                "items": {
+                                  "$ref": "#/components/schemas/Kunyomi"
+                                }
+                              },
+                              "onyomi": {
+                                "type": "array",
+                                "items": {
+                                  "$ref": "#/components/schemas/Onyomi"
+                                }
+                              }
+                            },
+                            "required": [
+                              "kunyomi",
+                              "onyomi"
+                            ]
+                          }
+                        ]
+                      }
+                    },
+                    "error": {
+                      "nullable": true
+                    }
+                  },
+                  "required": [
+                    "success"
+                  ]
                 }
               }
             }
