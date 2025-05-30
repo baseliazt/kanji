@@ -3,11 +3,9 @@
  * Do not make direct changes to the file.
  */
 
-export interface VocabularySchema {
+export interface KanjiCSVSchema {
   id: string;
-  kanji_id: string;
   kanji: string;
-  kana: string;
-  romaji: string;
-  image_url: string;
+  stroke: string;
+  level: string;
 }

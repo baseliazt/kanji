@@ -1,1 +1,1 @@
-export * from "./level.controller";
+export * from "./controller";

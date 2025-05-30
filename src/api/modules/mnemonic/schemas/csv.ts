@@ -3,9 +3,9 @@
  * Do not make direct changes to the file.
  */
 
-export interface KanjiSchema {
+export interface MnemonicCSVSchema {
   id: string;
-  kanji: string;
-  stroke: string;
-  level: string;
+  kanji_id: string;
+  id_ID: string;
+  en_US: string;
 }

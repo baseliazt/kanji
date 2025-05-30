@@ -1,7 +1,7 @@
 import { NextRequest } from "next/server";
-import { getLevelListRequestDTO } from "../dtos/level_list.get";
+import { getKanjiListQueryRequest } from "../dtos/list.get";
 
-export class LevelController {
+export class KanjiController {
   constructor() {}
   async getLevelList(request: NextRequest) {
     const searchParams = request.nextUrl.searchParams;
@@ -11,7 +11,7 @@ export class LevelController {
       category: searchParams.get("category"),
     };
 
-    const result = getLevelListRequestDTO.safeParse(query);
+    const result = getKanjiListQueryRequest.safeParse(query);
 
     return result;
   }

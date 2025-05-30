@@ -1,25 +1,43 @@
 import fs from "fs";
 import path from "path";
 import Papa from "papaparse";
+import { KanjiCSVSchema } from "../schemas/csv";
+import { KunyomiService } from "../../kunyomi/services";
+import { OnyomiService } from "../../onyomi/services";
 
-export class LevelService {
+export class KanjiService {
   constructor() {}
 
-  async getLevelList() {
+  async getKanjiList() {
     const filePath = path.join(
       process.cwd(),
       "src",
       "data",
-      "jlpt",
-      `level.csv`
+      "csv",
+      `Kanji.csv`
     );
     const fileContent = fs.readFileSync(filePath, "utf-8");
 
-    const parsed = Papa.parse(fileContent, {
+    const parsed = Papa.parse<KanjiCSVSchema>(fileContent, {
       header: true,
       skipEmptyLines: true,
     });
+    const kanjiList = parsed.data;
 
-    return parsed.data;
+    const kunyomiService = new KunyomiService();
+    const kunyomiList = await kunyomiService.getList();
+
+    const onyomiService = new OnyomiService();
+    const onyomiList = await onyomiService.getList();
+
+    const data = kanjiList.map((kanji) => {
+      return {
+        ...kanji,
+        kunyomi: kunyomiList.filter((kunyomi) => kunyomi.kanji_id === kanji.id),
+        onyomi: onyomiList.filter((kunyomi) => kunyomi.kanji_id === kanji.id),
+      };
+    });
+
+    return data;
   }
 }

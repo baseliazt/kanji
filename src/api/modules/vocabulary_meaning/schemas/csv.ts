@@ -3,7 +3,9 @@
  * Do not make direct changes to the file.
  */
 
-export interface LevelSchema {
+export interface VocabularyMeaningCSVSchema {
   id: string;
-  name: string;
+  vocabulary_id: string;
+  id_ID: string;
+  en_US: string;
 }

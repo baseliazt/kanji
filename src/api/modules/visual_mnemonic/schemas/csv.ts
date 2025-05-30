@@ -3,9 +3,9 @@
  * Do not make direct changes to the file.
  */
 
-export interface VocabularyMeaningSchema {
+export interface VisualMnemonicCSVSchema {
   id: string;
-  vocabulary_id: string;
+  kanji_id: string;
   id_ID: string;
   en_US: string;
 }

@@ -3,9 +3,9 @@
  * Do not make direct changes to the file.
  */
 
-export interface MnemonicSchema {
+export interface KunyomiCSVSchema {
   id: string;
   kanji_id: string;
-  id_ID: string;
-  en_US: string;
+  ja_Hira: string;
+  ja_Latn: string;
 }

@@ -3,9 +3,12 @@
  * Do not make direct changes to the file.
  */
 
-export interface VisualMnemonicSchema {
+export interface VocabularyCSVSchema {
   id: string;
   kanji_id: string;
-  id_ID: string;
-  en_US: string;
+  word: string;
+  kana: string;
+  kanji: string;
+  romaji: string;
+  image_url: string;
 }
