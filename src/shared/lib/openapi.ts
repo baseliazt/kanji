@@ -3,12 +3,11 @@ import {
   OpenAPIRegistry,
   OpenApiGeneratorV3,
 } from "@asteasolutions/zod-to-openapi";
-import { userRegistry } from "@/schemas/users.openapi";
-import { postRegistry } from "@/schemas/posts.openapi";
+import { GetKanjiListRegistry } from "@/api/modules/kanji/docs/list.get";
 
 const registry = new OpenAPIRegistry();
 
-const registryItems = [userRegistry, postRegistry];
+const registryItems = [GetKanjiListRegistry];
 
 for (const registryItem of registryItems) {
   registry.registerPath(registryItem);

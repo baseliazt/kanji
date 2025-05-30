@@ -4,6 +4,7 @@ import Papa from "papaparse";
 import { KanjiCSVSchema } from "../schemas/csv";
 import { KunyomiService } from "../../kunyomi/services";
 import { OnyomiService } from "../../onyomi/services";
+import { KanjiList, KanjiListSchema } from "../schemas/schema";
 
 export class KanjiService {
   constructor() {}
@@ -22,10 +23,16 @@ export class KanjiService {
       header: true,
       skipEmptyLines: true,
     });
-    const kanjiList = parsed.data;
-
+    console.log("ini kepanggil 0");
+    const result = KanjiListSchema.safeParse(parsed.data);
+    if (!result.success) {
+      throw new Error("Internal server error");
+    }
+    const kanjiList = result.data;
+    console.log("ini kepanggil 1");
     const kunyomiService = new KunyomiService();
     const kunyomiList = await kunyomiService.getList();
+    console.log("ini kepanggil 2");
 
     const onyomiService = new OnyomiService();
     const onyomiList = await onyomiService.getList();

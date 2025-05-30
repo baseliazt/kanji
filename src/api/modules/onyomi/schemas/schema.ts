@@ -9,7 +9,7 @@ export const OnyomiSchema = z
       .preprocess((val) => Number(val), z.number())
       .openapi({ type: "number", example: 1 }),
     kanji_id: z.string().openapi({ example: "1" }),
-    ["ja-Hira"]: z
+    ["ja-Kana"]: z
       .string()
       .openapi({ example: "イチ", description: "Onyomi in katakana" }),
     ["ja-Latn"]: z

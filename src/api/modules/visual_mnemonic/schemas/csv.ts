@@ -6,6 +6,6 @@
 export interface VisualMnemonicCSVSchema {
   id: string;
   kanji_id: string;
-  id_ID: string;
-  en_US: string;
+  ['id-ID']: string;
+  ['en-US']: string;
 }

@@ -6,6 +6,6 @@
 export interface VocabularyMeaningCSVSchema {
   id: string;
   vocabulary_id: string;
-  id_ID: string;
-  en_US: string;
+  ['id-ID']: string;
+  ['en-US']: string;
 }

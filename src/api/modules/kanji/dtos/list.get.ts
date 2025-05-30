@@ -1,10 +1,11 @@
 import { z } from "zod";
-import { KanjiCSVSchema } from "../schemas/csv";
-import { extendZodWithOpenApi } from "@asteasolutions/zod-to-openapi";
+import { Kanji } from "../schemas/schema";
 
 export const getKanjiListQueryRequest = z.object({
   page: z.number().optional(),
   limit: z.number().optional(),
 });
 
-export type GetLevelListResponseDTO = KanjiCSVSchema;
+export type GetKanjiListQueryRequest = z.infer<typeof getKanjiListQueryRequest>;
+
+export type GetKanjiListResponseDTO = Kanji;

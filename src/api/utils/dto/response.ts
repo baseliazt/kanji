@@ -1,3 +1,8 @@
+import { z } from "zod";
+import { extendZodWithOpenApi } from "@asteasolutions/zod-to-openapi";
+
+extendZodWithOpenApi(z);
+
 export interface ApiResponse<T> {
   success: boolean;
   message?: string;
@@ -18,3 +23,11 @@ export function createApiResponse<T>(
     error,
   };
 }
+
+export const ApiResponseSchema = <T extends z.ZodTypeAny>(dataSchema: T) =>
+  z.object({
+    success: z.boolean(),
+    message: z.string().optional(),
+    data: dataSchema.optional(),
+    error: z.unknown().optional(),
+  });

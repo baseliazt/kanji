@@ -1,26 +1,27 @@
-// schemas/post.openapi.ts
 import { RouteConfig } from "@asteasolutions/zod-to-openapi";
-import { CreatePostRequest, CreatePostResponse } from "@/schemas/post";
+import { ApiResponseSchema } from "@/api/utils/dto";
+import { KanjiSchema } from "../schemas/schema";
+import { z } from "zod";
+import { KunyomiListSchema } from "../../kunyomi/schemas/schema";
+import { OnyomiListSchema } from "../../onyomi/schemas/schema";
 
-export const getKanjiListRegistry: RouteConfig = {
+export const GetKanjiListRegistry: RouteConfig = {
   method: "get",
   path: "/api/kanji",
   tags: ["Kanji"],
-  request: {
-    body: {
-      content: {
-        "application/json": {
-          schema: CreatePostRequest,
-        },
-      },
-    },
-  },
   responses: {
     201: {
       description: "Post created",
       content: {
         "application/json": {
-          schema: CreatePostResponse,
+          schema: ApiResponseSchema(
+            z.array(
+              KanjiSchema.extend({
+                kunyomi: KunyomiListSchema,
+                onyomi: OnyomiListSchema,
+              })
+            )
+          ),
         },
       },
     },
