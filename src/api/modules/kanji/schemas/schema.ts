@@ -1,7 +1,5 @@
 import { z } from "zod";
 import { extendZodWithOpenApi } from "@asteasolutions/zod-to-openapi";
-import { KunyomiSchema } from "../../kunyomi/schemas/schema";
-import { OnyomiSchema } from "../../onyomi/schemas/schema";
 
 extendZodWithOpenApi(z);
 
@@ -11,12 +9,6 @@ export const KanjiSchema = z
     kanji: z
       .string()
       .openapi({ example: "一", description: "Kanji's example" }),
-    // kunyomi: z.array(KunyomiSchema).openapi({
-    //   description: "The native Japanese reading of a kanji.",
-    // }),
-    // onyomi: z.array(OnyomiSchema).openapi({
-    //   description: "The Sino-Japanese (Chinese-based) reading of a kanji.",
-    // }),
     stroke: z
       .preprocess((val) => Number(val), z.number())
       .openapi({ type: "number", example: 1, description: "Number of stroke" }),
