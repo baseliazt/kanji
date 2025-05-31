@@ -1,0 +1,14 @@
+// lib/api-server.ts
+import createClient from "openapi-fetch";
+import type { paths } from "@/api/docs/openapi";
+
+const serverClient = createClient<paths>({
+  baseUrl: process.env.API_BASE_URL || "http://localhost:2026",
+  headers: {
+    "Content-Type": "application/json",
+    // Tambahkan auth headers di sini jika perlu
+    // Authorization: `Bearer ${token}`,
+  },
+});
+
+export default serverClient;
