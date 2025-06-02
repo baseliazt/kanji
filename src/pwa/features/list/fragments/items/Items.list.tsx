@@ -22,7 +22,7 @@ export const ItemsList = () => {
             "w-full"
           )}
         >
-          <p className={clsx("text-white text-[2rem]")}>{item.kanji}</p>
+          <p className={clsx("text-white text-[1rem]")}>{item.kanji}</p>
         </div>
       ))}
     </div>

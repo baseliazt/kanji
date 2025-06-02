@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import Papa from "papaparse";
+import { LevelCSVSchema, LevelListSchema } from "../schemas";
 
 export class LevelService {
   constructor() {}
@@ -10,16 +11,21 @@ export class LevelService {
       process.cwd(),
       "src",
       "data",
-      "jlpt",
+      "csv",
       `level.csv`
     );
     const fileContent = fs.readFileSync(filePath, "utf-8");
 
-    const parsed = Papa.parse(fileContent, {
+    const parsed = Papa.parse<LevelCSVSchema>(fileContent, {
       header: true,
       skipEmptyLines: true,
     });
+    const result = LevelListSchema.safeParse(parsed.data);
+    if (!result.success) {
+      throw new Error("Internal server error");
+    }
+    const levelList = result.data;
 
-    return parsed.data;
+    return levelList;
   }
 }

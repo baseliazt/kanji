@@ -3,7 +3,7 @@ import { getKanjiListQueryRequest } from "../dtos/list.get";
 
 export class KanjiController {
   constructor() {}
-  async getLevelList(request: NextRequest) {
+  async getKanjiList(request: NextRequest) {
     const searchParams = request.nextUrl.searchParams;
 
     const query = {

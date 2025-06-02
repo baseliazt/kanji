@@ -1,11 +1,11 @@
 import { NextRequest, NextResponse } from "next/server";
-import { KanjiController } from "@/api/modules/kanji/controllers";
 import { createApiResponse } from "@/api/utils/dto";
-import { KanjiService } from "@/api/modules/kanji/services";
+import { LevelService } from "@/api/modules/level/services";
+import { LevelController } from "@/api/modules/level/controllers";
 
 export async function GET(request: NextRequest) {
-  const controller = new KanjiController();
-  const service = new KanjiService();
+  const controller = new LevelController();
+  const service = new LevelService();
 
   const validation = await controller.getLevelList(request);
   if (!validation.success) {
@@ -21,7 +21,7 @@ export async function GET(request: NextRequest) {
   }
 
   try {
-    const data = await service.getKanjiList();
+    const data = await service.getLevelList();
 
     return NextResponse.json(
       createApiResponse(true, data, "Data fetched successfully")
