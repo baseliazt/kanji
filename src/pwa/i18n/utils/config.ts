@@ -1,13 +1,12 @@
 import type { UserConfig } from "next-i18next";
+import path from "path";
 
 const nextI18NextConfig: UserConfig = {
   i18n: {
-    defaultLocale: "en",
-    locales: ["en", "id"],
+    defaultLocale: "en-US",
+    locales: ["en-US", "id-ID"],
   },
-  localePath: "./locales",
-  ns: ["common", "home", "footer"],
-  defaultNS: "common",
+  localePath: path.resolve("./locales"),
   reloadOnPrerender: process.env.NODE_ENV === "development",
 };
 

@@ -15,8 +15,9 @@ export const ItemsList = () => {
         "w-full"
       )}
     >
-      {state.kanji.data?.map((item) => (
+      {state.kanji.data?.map((item, index) => (
         <KanjiAccordion
+          key={index}
           kanji={{
             kanji: item.kanji,
           }}

@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 import https from "https";
-import { SHEETS } from "../constants";
+import { TRANSLATION_SHEETS } from "../constants";
 
 function getCsvUrl(sheetId: string, gid: string) {
   return `https://docs.google.com/spreadsheets/d/${sheetId}/export?format=csv&gid=${gid}`;
@@ -61,7 +61,7 @@ function fetchCSV(
 async function main() {
   try {
     // Loop fetch secara berurutan
-    for (const sheet of SHEETS) {
+    for (const sheet of TRANSLATION_SHEETS) {
       const url = getCsvUrl(sheet.sheetId, sheet.gid);
       const outputPath = path.join(
         process.cwd(),

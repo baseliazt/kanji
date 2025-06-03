@@ -22,7 +22,13 @@
       "@/*": ["./src/*"]
     }
   },
-  "typeRoots": ["types", "node_modules/@shared/types"],
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "typeRoots": ["types", "node_modules/@shared/types", "src/pwa/i18n/types"],
+  "include": [
+    "**/*.ts",
+    "**/*.tsx",
+    "next-env.d.ts",
+    ".next/types/**/*.ts",
+    "src/pwa/i18n/types"
+  ],
   "exclude": ["node_modules"]
 }

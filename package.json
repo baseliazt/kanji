@@ -7,10 +7,12 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "fetch:sheets": "tsx src/shared/scripts/fetch-sheets.ts",
+    "fetch:database-sheets": "tsx src/shared/scripts/fetch-database-sheets.ts",
     "export:csv-types": "tsx src/shared/scripts/export-csv-types.ts",
     "export:openapi-json": "tsx src/shared/scripts/export-openapi-json.ts",
-    "export:openapi-types": "openapi-typescript src/api/docs/openapi.json -o src/api/docs/openapi.d.ts"
+    "export:openapi-types": "openapi-typescript src/api/docs/openapi.json -o src/api/docs/openapi.d.ts",
+    "fetch:translation-sheets": "tsx src/shared/scripts/fetch-translation-sheets.ts",
+    "export:i18n-locales": "tsx src/shared/scripts/export-i18n-locales.ts"
   },
   "dependencies": {
     "@asteasolutions/zod-to-openapi": "^7.3.2",
