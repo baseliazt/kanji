@@ -4,6 +4,9 @@ export const initialState: ListInitialStateType = {
   settings: {
     select: false,
   },
+  level: {
+    data: [],
+  },
   kanji: {
     data: [],
   },

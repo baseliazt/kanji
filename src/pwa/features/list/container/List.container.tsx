@@ -9,7 +9,13 @@ export const ListContainer = () => {
   return (
     <>
       <NavbarList />
-      <div className={clsx("w-full", "px-[1.5rem] pt-[4rem]")}>
+      <div
+        className={clsx(
+          "grid grid-cols-1 place-content-start place-items-start gap-[1.5rem]",
+          "w-full",
+          "px-[1.5rem] pt-[4rem]"
+        )}
+      >
         <HeaderList />
         <LevelList />
         <ItemsList />

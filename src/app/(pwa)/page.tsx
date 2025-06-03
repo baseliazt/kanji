@@ -4,13 +4,17 @@ import { initialState, ListProvider } from "@/pwa/features/list/context";
 
 export default async function Home() {
   let state = initialState;
-  const { data, error } = await serverClient.GET("/api/kanji");
-
+  const { data: kanjiData } = await serverClient.GET("/api/kanji");
+  const { data: levelData } = await serverClient.GET("/api/level");
   state = {
     ...state,
     kanji: {
       ...state.kanji,
-      data: data?.data ?? [],
+      data: kanjiData?.data ?? [],
+    },
+    level: {
+      ...state.level,
+      data: levelData?.data ?? [],
     },
   };
   return (

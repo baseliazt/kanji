@@ -2,6 +2,7 @@ import {
   ListActionEnum,
   ListActions,
   ListKanji,
+  ListLevel,
   ListSettings,
 } from "./List.types";
 
@@ -12,6 +13,17 @@ export const ListSettingsReducers = (
 ) => {
   switch (action.type) {
     case ListActionEnum.SetSettingsData:
+      return action.payload;
+
+    default:
+      return state;
+  }
+};
+
+// Level
+export const ListLevelReducers = (state: ListLevel, action: ListActions) => {
+  switch (action.type) {
+    case ListActionEnum.SetLevelData:
       return action.payload;
 
     default:

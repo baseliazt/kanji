@@ -36,12 +36,12 @@
   --color-green-900: #123215;
 }
 
-@media (prefers-color-scheme: dark) {
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #1a1a1a;
     --foreground: #ffffff;
   }
-}
+} */
 
 body {
   background: var(--background);

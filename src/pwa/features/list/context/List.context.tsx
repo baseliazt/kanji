@@ -1,7 +1,11 @@
 "use client";
 import React, { createContext, useReducer, Dispatch } from "react";
 import { ListActions, ListInitialStateType } from "./List.types";
-import { ListKanjiReducers, ListSettingsReducers } from "./List.reducers";
+import {
+  ListKanjiReducers,
+  ListLevelReducers,
+  ListSettingsReducers,
+} from "./List.reducers";
 import { initialState } from "./List.data";
 
 const ListContext = createContext<{
@@ -13,10 +17,11 @@ const ListContext = createContext<{
 });
 
 const mainReducer = (
-  { settings, kanji }: ListInitialStateType,
+  { settings, level, kanji }: ListInitialStateType,
   action: ListActions
 ) => ({
   settings: ListSettingsReducers(settings, action),
+  level: ListLevelReducers(level, action),
   kanji: ListKanjiReducers(kanji, action),
 });
 

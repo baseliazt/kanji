@@ -1,10 +1,9 @@
-"use client";
 import * as React from "react";
 import clsx from "clsx";
 
 export const NavbarList = () => {
   return (
-    <div
+    <nav
       className={clsx(
         "flex items-center justify-center",
         "bg-gray-90",
@@ -14,7 +13,9 @@ export const NavbarList = () => {
         "px-[1.5rem]"
       )}
     >
-      <h1 className={clsx("text-white font-bold text-[1.25rem]")}>{"漢旅"}</h1>
-    </div>
+      <h1 className={clsx("text-neutral-100 font-bold text-[1.25rem]")}>
+        {"漢旅"}
+      </h1>
+    </nav>
   );
 };

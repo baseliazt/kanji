@@ -92,6 +92,23 @@
           "stroke",
           "level"
         ]
+      },
+      "Level": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "example": 1
+          },
+          "name": {
+            "type": "string",
+            "example": "N5"
+          }
+        },
+        "required": [
+          "id",
+          "name"
+        ]
       }
     },
     "parameters": {}
@@ -145,6 +162,45 @@
                             ]
                           }
                         ]
+                      }
+                    },
+                    "error": {
+                      "nullable": true
+                    }
+                  },
+                  "required": [
+                    "success"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/level": {
+      "get": {
+        "tags": [
+          "Kanji"
+        ],
+        "responses": {
+          "201": {
+            "description": "Post created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/Level"
                       }
                     },
                     "error": {

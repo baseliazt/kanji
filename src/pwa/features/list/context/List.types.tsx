@@ -1,4 +1,4 @@
-import { paths } from "@/api/docs/openapi";
+import { components, paths } from "@/api/docs/openapi";
 
 type ActionMap<M extends { [index: string]: any }> = {
   [Key in keyof M]: M[Key] extends undefined
@@ -14,12 +14,18 @@ type ActionMap<M extends { [index: string]: any }> = {
 // State Collection Types
 export interface ListInitialStateType {
   settings: ListSettings;
+  level: ListLevel;
   kanji: ListKanji;
 }
 
 // State Collection Types consist of:
 export interface ListSettings {
   select: boolean;
+}
+
+export interface ListLevel {
+  selected?: components["schemas"]["Level"];
+  data: paths["/api/level"]["get"]["responses"]["201"]["content"]["application/json"]["data"];
 }
 
 export interface ListKanji {
@@ -29,12 +35,17 @@ export interface ListKanji {
 export enum ListActionEnum {
   // Settings
   SetSettingsData = "SetSettingsData",
+  // Level
+  SetLevelData = "SetLevelData",
   // Kanji
   SetKanjiData = "SetKanjiData",
 }
 
 // Action Collection Types
-export type ListActions = ListSettingsActions | ListKanjiActions;
+export type ListActions =
+  | ListSettingsActions
+  | ListLevelActions
+  | ListKanjiActions;
 
 // Action Collection Types consist of:
 // Settings
@@ -44,6 +55,14 @@ type ListSettingsPayload = {
 
 export type ListSettingsActions =
   ActionMap<ListSettingsPayload>[keyof ActionMap<ListSettingsPayload>];
+
+// Level
+type ListLevelPayload = {
+  [ListActionEnum.SetLevelData]: ListLevel;
+};
+
+export type ListLevelActions =
+  ActionMap<ListLevelPayload>[keyof ActionMap<ListLevelPayload>];
 
 // Kanji
 type ListKanjiPayload = {
