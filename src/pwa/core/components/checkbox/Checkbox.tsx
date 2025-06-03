@@ -12,6 +12,7 @@ export interface CheckboxProps extends CheckboxComponentProps {
   label?: string;
   required?: boolean;
   variant?: "primary" | "secondary";
+  shape?: "circle" | "square";
 }
 
 export const Checkbox = ({
@@ -19,9 +20,55 @@ export const Checkbox = ({
   required = false,
   className,
   variant = "primary",
+  shape = "circle",
   ...otherProps
 }: CheckboxProps) => {
   const ref = useRef<HTMLElement | null>(null);
+  if (shape === "circle") {
+    return (
+      <Field
+        className={clsx(
+          "grid grid-flow-col gap-[0.5rem] justify-start justify-items-start"
+        )}
+        onClick={() => {
+          if (!!ref.current) {
+            ref.current.click();
+          }
+        }}
+      >
+        <CheckboxComponent
+          className={clsx(
+            "outline-none",
+            "w-[1rem] h-[1rem]",
+            otherProps.checked ? "bg-[#5AC53D]" : "bg-transparent",
+            otherProps.checked
+              ? "border-[1px] border-[#5AC53D]"
+              : "border-[1px] border-[#98989E]",
+            "rounded-full",
+            "flex items-center justify-center",
+            "cursor-pointer disabled:cursor-default",
+            className
+          )}
+          {...otherProps}
+        >
+          <SVGIcon
+            name="Check"
+            className={clsx(
+              "w-[0.875rem] h-[0.875rem]",
+              "text-[white]",
+              otherProps.checked ? "opacity-100" : "opacity-0"
+            )}
+          />
+        </CheckboxComponent>
+        {!!label.length && (
+          <Label className={clsx("text-[0.75rem] font-normal text-[#2C2C2E]")}>
+            {label}
+            {required && <span className={clsx("text-[#FF0066]")}>{"*"}</span>}
+          </Label>
+        )}
+      </Field>
+    );
+  }
   return (
     <Field
       className={clsx(

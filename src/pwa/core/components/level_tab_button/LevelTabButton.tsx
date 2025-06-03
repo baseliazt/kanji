@@ -1,36 +1,43 @@
 import React, { forwardRef } from "react";
 import clsx from "clsx";
+import { motion, HTMLMotionProps } from "framer-motion";
+
+interface LevelTabButtonProps extends HTMLMotionProps<"button"> {
+  selected: boolean;
+}
 
 export const LevelTabButton = forwardRef<
   HTMLButtonElement,
-  React.ButtonHTMLAttributes<HTMLButtonElement> & {
-    selected?: boolean;
-    variant?: "horizontal" | "vertical";
-  }
+  LevelTabButtonProps
 >((props, ref) => {
-  const { selected, variant, ...otherProps } = props;
+  const { selected, ...otherProps } = props;
 
   return (
-    <button
+    <motion.button
       ref={ref}
       {...otherProps}
+      animate={{
+        backgroundColor: selected ? "#16a34a" : "transparent",
+        color: "#ffffff",
+        fontWeight: selected ? 700 : 400,
+      }}
+      transition={{
+        type: "spring",
+        stiffness: 300,
+        damping: 20,
+        duration: 0.3,
+      }}
       className={clsx(
         "flex items-center justify-center",
-        "w-fit",
-        selected ? "bg-green-600" : "bg-[transparent] hover:bg-green-600",
-        selected
-          ? "text-white text-[0.75rem] font-bold"
-          : "text-white text-[0.75rem] font-normal hover:text-white hover:text-[0.75rem] hover:font-bold",
+        "w-fit text-[0.75rem]",
         "px-[0.75rem] py-[0.25rem]",
-        selected ? "rounded-[0.75rem]" : "rounded-[0px]",
-        "cursor-pointer",
-        "whitespace-nowrap",
-        "outline-none",
+        "rounded-[0.75rem]",
+        "cursor-pointer whitespace-nowrap outline-none",
         props.className
       )}
     >
       {props.children}
-    </button>
+    </motion.button>
   );
 });
 

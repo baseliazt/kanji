@@ -3,6 +3,7 @@
 import { useContext } from "react";
 import { ListContext } from "../../context";
 import clsx from "clsx";
+import { KanjiAccordion } from "@/pwa/core/components/kanji_accordion";
 
 export const ItemsList = () => {
   const { state } = useContext(ListContext);
@@ -15,15 +16,11 @@ export const ItemsList = () => {
       )}
     >
       {state.kanji.data?.map((item) => (
-        <div
-          key={item.id}
-          className={clsx(
-            "grid grid-cols-1 place-content-start place-items-start gap-[0.5rem]",
-            "w-full"
-          )}
-        >
-          <p className={clsx("text-white text-[1rem]")}>{item.kanji}</p>
-        </div>
+        <KanjiAccordion
+          kanji={{
+            kanji: item.kanji,
+          }}
+        />
       ))}
     </div>
   );
