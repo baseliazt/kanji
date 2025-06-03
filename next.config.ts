@@ -1,5 +1,5 @@
 import type { NextConfig } from "next";
-import nextI18NextConfig from "./next-i18n.config";
+import nextI18NextConfig from "./src/pwa/i18n/utils/config";
 
 const nextConfig: NextConfig = {
   /* config options here */
