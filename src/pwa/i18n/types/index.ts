@@ -1,1 +1,2 @@
-export * from "./namespace";
+export * from "./i18next";
+export * from "./resources";
