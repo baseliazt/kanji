@@ -1,6 +1,7 @@
 import serverClient from "@/pwa/core/lib/api/server";
 import { ListContainer } from "@/pwa/features/list/container";
 import { initialState, ListProvider } from "@/pwa/features/list/context";
+import { LanguageProvider } from "@/pwa/i18n/context/LanguageProvider";
 
 export default async function Home() {
   let state = initialState;
@@ -19,8 +20,10 @@ export default async function Home() {
   };
 
   return (
-    <ListProvider initialState={state}>
-      <ListContainer />
-    </ListProvider>
+    <LanguageProvider>
+      <ListProvider initialState={state}>
+        <ListContainer />
+      </ListProvider>
+    </LanguageProvider>
   );
 }

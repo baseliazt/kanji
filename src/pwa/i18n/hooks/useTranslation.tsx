@@ -1,6 +1,6 @@
 import { I18nNs } from "../types/i18next";
 import "../utils/i18n";
-import { useTranslation as useTranslationOriginal } from "react-i18next";
+import { useTranslation as useTranslationOriginal } from "next-i18next";
 
 export function useTranslation() {
   //   const ret = useTranslationOriginal<["common", Exclude<I18nNs, "common">]>();
