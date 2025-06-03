@@ -3,7 +3,7 @@
  * Do not make direct changes to the file.
  */
 
-export interface Resource {
+export interface Resources {
   kanji_selection: {
     title: "Select Kanji to Practice"
     item_header_kun: "kun {{kunyomi}}"
