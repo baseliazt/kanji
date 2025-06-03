@@ -12,7 +12,8 @@
     "export:openapi-json": "tsx src/shared/scripts/export-openapi-json.ts",
     "export:openapi-types": "openapi-typescript src/api/docs/openapi.json -o src/api/docs/openapi.d.ts",
     "fetch:translation-sheets": "tsx src/shared/scripts/fetch-translation-sheets.ts",
-    "export:i18n-locales": "tsx src/shared/scripts/export-i18n-locales.ts"
+    "export:i18n-locales": "tsx src/shared/scripts/export-i18n-locales.ts",
+    "export:i18n-resources": "tsx src/shared/scripts/export-i18n-resources.ts"
   },
   "dependencies": {
     "@asteasolutions/zod-to-openapi": "^7.3.2",
