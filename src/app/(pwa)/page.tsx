@@ -15,6 +15,7 @@ export default async function Home() {
     },
     level: {
       ...state.level,
+      selected: levelData?.data?.find((_, index) => index === 0),
       data: levelData?.data ?? [],
     },
   };

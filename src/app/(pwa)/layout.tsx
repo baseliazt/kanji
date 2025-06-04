@@ -10,7 +10,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Kantabi",
-  description: "Perjalanan Kanji",
+  description: "Kanji Roadmap",
 };
 
 export default function RootLayout({

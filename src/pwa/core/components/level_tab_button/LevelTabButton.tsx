@@ -17,8 +17,7 @@ export const LevelTabButton = forwardRef<
       ref={ref}
       {...otherProps}
       animate={{
-        backgroundColor: selected ? "#16a34a" : "transparent",
-        color: "#ffffff",
+        backgroundColor: selected ? "#00794D" : "#2C2C2C",
         fontWeight: selected ? 700 : 400,
       }}
       transition={{
@@ -29,12 +28,17 @@ export const LevelTabButton = forwardRef<
       }}
       className={clsx(
         "flex items-center justify-center",
-        "w-fit text-[0.75rem]",
-        "px-[0.75rem] py-[0.25rem]",
+        "w-fit",
+        "text-[0.75rem]",
+        "px-[0.75rem] py-[0.375rem]",
         "rounded-[0.75rem]",
+        selected ? "text-neutral-100" : "text-neutral-300",
         "cursor-pointer whitespace-nowrap outline-none",
         props.className
       )}
+      style={{
+        boxShadow: "-1px 0px 4px 0px #2E2E2ECC, 3px 3px 6px 0px #0F0F0FCC",
+      }}
     >
       {props.children}
     </motion.button>

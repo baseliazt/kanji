@@ -16,8 +16,23 @@ export const ListContainer = () => {
           "px-[1.5rem] pt-[4rem]"
         )}
       >
-        <HeaderList />
-        <LevelList />
+        <div
+          className={clsx(
+            "grid grid-cols-1 place-content-start place-items-start gap-[0.75rem]",
+            "w-full"
+          )}
+        >
+          <HeaderList />
+          <div
+            className={clsx(
+              "grid grid-flow-col items-center content-center justify-between justify-items-start",
+              "w-full"
+            )}
+          >
+            <LevelList />
+          </div>
+        </div>
+
         <ItemsList />
       </div>
     </>
