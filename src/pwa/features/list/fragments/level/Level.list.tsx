@@ -5,6 +5,7 @@ import { LevelTabButton } from "@/pwa/core/components/level_tab_button";
 import { ListActionEnum, ListContext } from "../../context";
 import LevelTabContainer from "@/pwa/core/components/level_tab_container/LevelTabContainer";
 import { components } from "@/api/docs/openapi";
+import NeomorphicDropdown from "@/pwa/core/components/dropdown/Dropdown";
 
 export const LevelList = () => {
   const { state, dispatch } = useContext(ListContext);
@@ -18,23 +19,28 @@ export const LevelList = () => {
       },
     });
   };
+  // return (
+  //   <div className={clsx("flex items-center justify-center", "w-full")}>
+  //     <LevelTabContainer>
+  //       {state.level.data?.map((level, index) => (
+  //         <LevelTabButton
+  //           key={index}
+  //           selected={
+  //             !state.level.selected
+  //               ? index === 0
+  //               : state.level.selected.id === level.id
+  //           }
+  //           onClick={() => handleSelectLevel(level)}
+  //         >
+  //           {level.name}
+  //         </LevelTabButton>
+  //       ))}
+  //     </LevelTabContainer>
+  //   </div>
+  // );
   return (
-    <div className={clsx("flex items-center justify-center", "w-full")}>
-      <LevelTabContainer>
-        {state.level.data?.map((level, index) => (
-          <LevelTabButton
-            key={index}
-            selected={
-              !state.level.selected
-                ? index === 0
-                : state.level.selected.id === level.id
-            }
-            onClick={() => handleSelectLevel(level)}
-          >
-            {level.name}
-          </LevelTabButton>
-        ))}
-      </LevelTabContainer>
-    </div>
+    <NeomorphicDropdown
+      options={state.level.data?.map((item) => item.name) ?? []}
+    />
   );
 };
