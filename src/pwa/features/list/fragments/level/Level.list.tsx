@@ -8,6 +8,15 @@ import { components } from "@/api/docs/openapi";
 export const LevelList = () => {
   const { state, dispatch } = useContext(ListContext);
 
+  const handleClickLevelTabButton = (data: components["schemas"]["Level"]) => {
+    dispatch({
+      type: ListActionEnum.SetLevelData,
+      payload: {
+        ...state.level,
+        selected: data,
+      },
+    });
+  };
   return (
     <div
       className={clsx(
@@ -16,7 +25,11 @@ export const LevelList = () => {
       )}
     >
       {state.level.data?.map((level) => (
-        <LevelTabButton key={level.id} selected={level.id === state.level.selected?.id}>
+        <LevelTabButton
+          key={level.id}
+          selected={level.id === state.level.selected?.id}
+          onClick={() => handleClickLevelTabButton(level)}
+        >
           {level.name}
         </LevelTabButton>
       ))}
