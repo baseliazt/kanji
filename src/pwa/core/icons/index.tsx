@@ -3,11 +3,13 @@ import { svgMap, SVGName } from "./svgMap";
 
 export interface SVGIconProps extends React.HTMLAttributes<SVGElement> {
   name: SVGName;
+  strokeWidth?: number;
 }
 
 const SVGIcon: React.FC<SVGIconProps> = ({
   name,
   className,
+  strokeWidth,
   ...otherProps
 }) => {
   const SVGComponent = svgMap[name];
@@ -16,7 +18,13 @@ const SVGIcon: React.FC<SVGIconProps> = ({
     return null; // Handle missing SVGs gracefully
   }
 
-  return <SVGComponent className={className} {...otherProps} />;
+  return (
+    <SVGComponent
+      {...otherProps}
+      className={className}
+      strokeWidth={strokeWidth}
+    />
+  );
 };
 
 export default SVGIcon;

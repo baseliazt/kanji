@@ -47,6 +47,8 @@ import {
   PieChart,
   ArrowUpRight,
   Sun,
+  Flame,
+  TrendingUp,
 } from "lucide-react";
 
 export const svgMap = {
@@ -97,7 +99,9 @@ export const svgMap = {
   Forward,
   PieChart,
   ArrowUpRight,
-  Sun
+  Sun,
+  Flame,
+  TrendingUp,
 };
 
 export type SVGName = keyof typeof svgMap;

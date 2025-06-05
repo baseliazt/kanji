@@ -13,7 +13,7 @@ export const ItemsList = () => {
   return (
     <div
       className={clsx(
-        "grid grid-cols-1 place-content-start place-items-start gap-[0.5rem]",
+        "grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 place-content-start place-items-start gap-[0.5rem]",
         "w-full"
       )}
     >
@@ -22,13 +22,38 @@ export const ItemsList = () => {
           key={index}
           kanji={{
             kanji: item.kanji,
-            kun: t("kanji_selection:item_header_kun", {
-              kunyomi: item.kunyomi
-                .map((kunyomi) => kunyomi["ja-Hira"])
-                .join(", "),
-            }),
-            on: t("kanji_selection:item_header_on", {
-              onyomi: item.onyomi.map((onyomi) => onyomi["ja-Kana"]).join(", "),
+            kun: !item.kunyomi.length
+              ? undefined
+              : t("kanji_selection:item_header_kun", {
+                  kunyomi: item.kunyomi
+                    .map((kunyomi) => kunyomi["ja-Hira"])
+                    .join(", "),
+                }),
+            on: !item.onyomi.length
+              ? undefined
+              : t("kanji_selection:item_header_on", {
+                  onyomi: item.onyomi
+                    .map((onyomi) => onyomi["ja-Kana"])
+                    .join(", "),
+                }),
+          }}
+          words={{
+            words: item.vocabulary.map((vocabulary, vocabularyIndex) => {
+              return {
+                selected: vocabularyIndex === 0 ? true : false,
+                kanji: vocabulary.kanji,
+                romaji: vocabulary.romaji,
+                translation: vocabulary.romaji,
+                level: {
+                  label: "N5",
+                },
+                speed: {
+                  label: "avg: 2.3 sec",
+                },
+                attempt: {
+                  label: "1/3 times",
+                },
+              };
             }),
           }}
         />

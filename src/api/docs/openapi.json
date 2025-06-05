@@ -64,6 +64,47 @@
           "ja-Latn"
         ]
       },
+      "Vocabulary": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "number",
+            "example": 1
+          },
+          "kanji_id": {
+            "type": "string",
+            "example": "1"
+          },
+          "word": {
+            "type": "string",
+            "description": "Vocabulary in katakana",
+            "example": "イチ"
+          },
+          "kanji": {
+            "type": "string",
+            "description": "Romanized Japanese",
+            "example": "ichi"
+          },
+          "romaji": {
+            "type": "string",
+            "description": "Romanized Japanese",
+            "example": "ichi"
+          },
+          "image_url": {
+            "type": "string",
+            "description": "Romanized Japanese",
+            "example": "ichi"
+          }
+        },
+        "required": [
+          "id",
+          "kanji_id",
+          "word",
+          "kanji",
+          "romaji",
+          "image_url"
+        ]
+      },
       "Kanji": {
         "type": "object",
         "properties": {
@@ -154,11 +195,18 @@
                                 "items": {
                                   "$ref": "#/components/schemas/Onyomi"
                                 }
+                              },
+                              "vocabulary": {
+                                "type": "array",
+                                "items": {
+                                  "$ref": "#/components/schemas/Vocabulary"
+                                }
                               }
                             },
                             "required": [
                               "kunyomi",
-                              "onyomi"
+                              "onyomi",
+                              "vocabulary"
                             ]
                           }
                         ]

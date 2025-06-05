@@ -11,7 +11,7 @@ import {
 } from "../kanji_accordion_body";
 
 export interface KanjiAccordionProps {
-  words?: KanjiAccordionBodyProps;
+  words?: Omit<KanjiAccordionBodyProps, "isOpen">;
   kanji?: KanjiAccordionHeaderProps;
 }
 
@@ -28,8 +28,11 @@ export const KanjiAccordion = ({ kanji, words }: KanjiAccordionProps) => {
         "w-full",
         "px-[0.75rem] py-[0.5rem]",
         "rounded-[0.625rem]",
-        "bg-neutral-800"
+        "bg-[#202020]"
       )}
+      style={{
+        boxShadow: "0px 2px 4px 0px #00000080, 0px 1px 1px 0px #00000040",
+      }}
     >
       <KanjiAccordionHeader
         {...kanji}

@@ -32,6 +32,7 @@ export interface paths {
                             data?: (components["schemas"]["Kanji"] & {
                                 kunyomi: components["schemas"]["Kunyomi"][];
                                 onyomi: components["schemas"]["Onyomi"][];
+                                vocabulary: components["schemas"]["Vocabulary"][];
                             })[];
                             error?: unknown;
                         };
@@ -122,6 +123,32 @@ export interface components {
              * @example ichi
              */
             "ja-Latn": string;
+        };
+        Vocabulary: {
+            /** @example 1 */
+            id: number;
+            /** @example 1 */
+            kanji_id: string;
+            /**
+             * @description Vocabulary in katakana
+             * @example イチ
+             */
+            word: string;
+            /**
+             * @description Romanized Japanese
+             * @example ichi
+             */
+            kanji: string;
+            /**
+             * @description Romanized Japanese
+             * @example ichi
+             */
+            romaji: string;
+            /**
+             * @description Romanized Japanese
+             * @example ichi
+             */
+            image_url: string;
         };
         Kanji: {
             /** @example 1 */

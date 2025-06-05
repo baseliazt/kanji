@@ -4,6 +4,7 @@ import { KanjiSchema } from "../schemas/schema";
 import { z } from "zod";
 import { KunyomiListSchema } from "../../kunyomi/schemas/schema";
 import { OnyomiListSchema } from "../../onyomi/schemas/schema";
+import { VocabularyListSchema } from "../../vocabulary/schemas/schema";
 
 export const GetKanjiListRegistry: RouteConfig = {
   method: "get",
@@ -19,6 +20,7 @@ export const GetKanjiListRegistry: RouteConfig = {
               KanjiSchema.extend({
                 kunyomi: KunyomiListSchema,
                 onyomi: OnyomiListSchema,
+                vocabulary: VocabularyListSchema,
               })
             )
           ),

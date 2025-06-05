@@ -46,13 +46,18 @@ export const KanjiAccordionHeader = ({
             "w-full"
           )}
         >
-          <span className={clsx("text-gray-300 text-[0.75rem] font-bold")}>
-            {kun}
-          </span>
-          {!!kun?.length && !!on?.length && <Divider type="vertical" />}
-          <span className={clsx("text-gray-300 text-[0.75rem] font-bold")}>
-            {on}
-          </span>
+          {kun && (
+            <span className={clsx("text-gray-300 text-[0.75rem] font-medium")}>
+              {kun}
+            </span>
+          )}
+
+          {kun && on && <Divider type="vertical" />}
+          {on && (
+            <span className={clsx("text-gray-300 text-[0.75rem] font-medium")}>
+              {on}
+            </span>
+          )}
         </div>
       </div>
 
@@ -68,7 +73,7 @@ export const KanjiAccordionHeader = ({
         )}
         <SVGIcon
           name={isOpen ? "ChevronUp" : "ChevronDown"}
-          className={clsx("w-[1.5rem] h-[1.5rem]", "text-[#232323]")}
+          className={clsx("w-[1.5rem] h-[1.5rem]", "text-neutral-400")}
         />
       </div>
     </button>

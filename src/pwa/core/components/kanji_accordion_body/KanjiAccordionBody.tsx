@@ -1,15 +1,16 @@
 import * as React from "react";
 import clsx from "clsx";
 import { motion } from "framer-motion";
+import { KanjiItem, KanjiItemProps } from "../kanji_item";
 
 export interface KanjiAccordionBodyProps {
   isOpen?: boolean;
-  title?: string;
+  words?: KanjiItemProps[];
 }
 
 export const KanjiAccordionBody = ({
   isOpen = false,
-  title,
+  words,
 }: KanjiAccordionBodyProps) => {
   return (
     <motion.div
@@ -18,11 +19,17 @@ export const KanjiAccordionBody = ({
         height: isOpen ? "auto" : 0,
         opacity: isOpen ? 1 : 0,
       }}
-      transition={{ duration: 0.2, ease: "easeInOut" }}
-      className={clsx("text-[#5B5B5B] text-[0.875rem] font-normal")}
+      transition={{ duration: 0.3, ease: "easeInOut" }}
+      className={clsx(
+        "grid grid-cols-1 place-content-start place-items-start gap-[0.5rem]",
+        "w-full",
+        "text-[#5B5B5B] text-[0.875rem] font-normal"
+      )}
     >
-      <p className={clsx("text-[0.75rem] text-white font-normal")}>{title}</p>
       {/* list */}
+      {words?.map((word, wordIndex) => (
+        <KanjiItem key={wordIndex} {...word} />
+      ))}
     </motion.div>
   );
 };
