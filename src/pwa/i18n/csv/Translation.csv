@@ -1,3 +1,6 @@
 namespace,key,en-US
-kanji_selection,title,Select Kanji to Practice
-kanji_selection,item_header_kun,kun {{kunyomi}}
+kanji_selection,title,Practice your Kanji
+kanji_selection,item_header_kun,Kun: {{kunyomi}}
+kanji_selection,item_header_on,On: {{onyomi}}
+kanji_selection,item_content_avg,avg: {{avg}}
+kanji_selection,item_content_attempt,{{attempt}} times

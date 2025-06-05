@@ -1,21 +1,15 @@
-"use client"; // wajib karena ini client side init
+// "use client"; // wajib karena ini client side init
 
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import { nextI18NextConfig } from "./config";
-
+import resources from "./resource";
 if (!i18n.isInitialized) {
   i18n.use(initReactI18next).init({
     ...nextI18NextConfig.i18n,
     fallbackLng: nextI18NextConfig.i18n.defaultLocale,
-    resources: {
-      "en-US": {
-        kanji_selection: {
-          title: "Select Kanji to Practice",
-          item_header_kun: "kun {{kunyomi}}",
-        },
-      },
-    },
+    resources,
+
     interpolation: {
       escapeValue: false,
     },

@@ -5,7 +5,10 @@
 
 export interface Resources {
   kanji_selection: {
-    title: "Select Kanji to Practice"
-    item_header_kun: "kun {{kunyomi}}"
+    title: "Practice your Kanji"
+    item_header_kun: "Kun: {{kunyomi}}"
+    item_header_on: "On: {{onyomi}}"
+    item_content_avg: "avg: {{avg}}"
+    item_content_attempt: "{{attempt}} times"
   }
 };

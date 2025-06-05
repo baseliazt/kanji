@@ -13,6 +13,8 @@
     "export:openapi-types": "openapi-typescript src/api/docs/openapi.json -o src/api/docs/openapi.d.ts",
     "fetch:translation-sheets": "tsx src/shared/scripts/fetch-translation-sheets.ts",
     "export:i18n-locales": "tsx src/shared/scripts/export-i18n-locales.ts",
+    "export:i18n-resources-interface": "tsx src/shared/scripts/export-i18n-resources-interface.ts",
+    "export:i18n-languages": "tsx src/shared/scripts/export-i18n-languages.ts",
     "export:i18n-resources": "tsx src/shared/scripts/export-i18n-resources.ts"
   },
   "dependencies": {

@@ -2,6 +2,7 @@
 import clsx from "clsx";
 import SVGIcon from "../../icons";
 import { Checkbox } from "../checkbox";
+import { Divider } from "../divider";
 
 export interface KanjiAccordionHeaderProps {
   kanji?: string;
@@ -41,14 +42,15 @@ export const KanjiAccordionHeader = ({
         </span>
         <div
           className={clsx(
-            "grid grid-cols-1 items-center content-center justify-start justify-items-start gap-[0.125rem]",
+            "grid grid-flow-col items-center content-center justify-start justify-items-start gap-[0.5rem]",
             "w-full"
           )}
         >
-          <span className={clsx("text-[#232323] text-[1.125rem] font-bold")}>
+          <span className={clsx("text-gray-300 text-[0.75rem] font-bold")}>
             {kun}
           </span>
-          <span className={clsx("text-[#232323] text-[1.125rem] font-bold")}>
+          {!!kun?.length && !!on?.length && <Divider type="vertical" />}
+          <span className={clsx("text-gray-300 text-[0.75rem] font-bold")}>
             {on}
           </span>
         </div>
