@@ -1,3 +1,4 @@
+export const dynamic = "force-dynamic";
 import serverClient from "@/pwa/core/lib/api/server";
 import { ListContainer } from "@/pwa/features/list/container";
 import { initialState, ListProvider } from "@/pwa/features/list/context";

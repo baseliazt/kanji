@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import clsx from "clsx";
-import { motion } from "framer-motion";
 import {
   KanjiAccordionHeader,
   KanjiAccordionHeaderProps,
