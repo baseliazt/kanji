@@ -11,6 +11,7 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Kantabi",
   description: "Kanji Roadmap",
+  icons: "/logo/small.svg",
 };
 
 export default function RootLayout({
