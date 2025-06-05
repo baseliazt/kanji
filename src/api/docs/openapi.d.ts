@@ -149,6 +149,16 @@ export interface components {
              * @example ichi
              */
             image_url: string;
+            /**
+             * @description Romanized Japanese
+             * @example ichi
+             */
+            "id-ID": string;
+            /**
+             * @description Romanized Japanese
+             * @example ichi
+             */
+            "en-US": string;
         };
         Kanji: {
             /** @example 1 */

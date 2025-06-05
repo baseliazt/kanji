@@ -11,4 +11,6 @@ export interface VocabularyCSVSchema {
   kanji: string;
   romaji: string;
   image_url: string;
+  ['id-ID']: string;
+  ['en-US']: string;
 }

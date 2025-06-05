@@ -34,11 +34,6 @@ export const DATABASE_SHEETS = [
     gid: "1642997938",
     output: "Vocabulary.csv",
   },
-  {
-    sheetId: "1kJaYaeyowfrKd5weoTN0pt35j6txMSMuU4bamN-4v8g",
-    gid: "627592845",
-    output: "VocabularyMeaning.csv",
-  },
 ];
 
 export const TRANSLATION_SHEETS = [

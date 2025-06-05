@@ -5,6 +5,7 @@ import { ListContext } from "../../context";
 import clsx from "clsx";
 import { KanjiAccordion } from "@/pwa/core/components/kanji_accordion";
 import { useTranslation } from "@/pwa/i18n/hooks";
+import { quoteCase, titleCase } from "@/pwa/core/lib/formatters/string";
 
 export const ItemsList = () => {
   const { t } = useTranslation();
@@ -42,8 +43,8 @@ export const ItemsList = () => {
               return {
                 selected: vocabularyIndex === 0 ? true : false,
                 kanji: vocabulary.kanji,
-                romaji: vocabulary.romaji,
-                translation: vocabulary.romaji,
+                romaji: titleCase(vocabulary.romaji),
+                translation: quoteCase(vocabulary["en-US"]),
                 level: {
                   label: "N5",
                 },

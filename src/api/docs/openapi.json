@@ -94,6 +94,16 @@
             "type": "string",
             "description": "Romanized Japanese",
             "example": "ichi"
+          },
+          "id-ID": {
+            "type": "string",
+            "description": "Romanized Japanese",
+            "example": "ichi"
+          },
+          "en-US": {
+            "type": "string",
+            "description": "Romanized Japanese",
+            "example": "ichi"
           }
         },
         "required": [
@@ -102,7 +112,9 @@
           "word",
           "kanji",
           "romaji",
-          "image_url"
+          "image_url",
+          "id-ID",
+          "en-US"
         ]
       },
       "Kanji": {

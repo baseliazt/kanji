@@ -21,6 +21,12 @@ export const VocabularySchema = z
     ["image_url"]: z
       .string()
       .openapi({ example: "ichi", description: "Romanized Japanese" }),
+    ["id-ID"]: z
+      .string()
+      .openapi({ example: "ichi", description: "Romanized Japanese" }),
+    ["en-US"]: z
+      .string()
+      .openapi({ example: "ichi", description: "Romanized Japanese" }),
   })
   .openapi("Vocabulary");
 

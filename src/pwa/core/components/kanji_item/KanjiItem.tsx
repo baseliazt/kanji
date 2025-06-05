@@ -68,7 +68,7 @@ export const KanjiItem = ({
             className={clsx("w-[1rem] h-[1rem]", "text-[white]")}
             strokeWidth={1.25}
           />
-          <span className={clsx("text-neutral-200 text-[13px] font-neutral")}>
+          <span className={clsx("text-neutral-200 text-[13px] font-neutral italic")}>
             {translation}
           </span>
         </div>

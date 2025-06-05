@@ -1,7 +1,7 @@
-id,kanji_id,word,kana,kanji,romaji,image_url
-1,1,先生,せんせい,せん,sensei,
-2,1,お先に,おさきに,さき,osakini,
-3,1,先月,せんげつ,せん,sengetsu,
-4,2,生活,せいかつ,せい,seikatsu,
-5,2,生徒,せい と,せい,seito,
-6,2,たん生日,たんじょうび,じょう,tanshoubi,
+id,kanji_id,word,kana,kanji,romaji,image_url,id-ID,en-US
+1,1,先生,せんせい,せん,sensei,,guru,teacher
+2,1,お先に,おさきに,さき,osakini,,duluan,ahead
+3,1,先月,せんげつ,せん,sengetsu,,bulan lalu,last month
+4,2,生活,せいかつ,せい,seikatsu,,kehidupan,living
+5,2,生徒,せい と,せい,seito,,murid,student
+6,2,たん生日,たんじょうび,じょう,tanshoubi,,ulang tahun,birthday
