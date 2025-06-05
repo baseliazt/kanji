@@ -12,7 +12,7 @@ export class LevelService {
       "src",
       "data",
       "csv",
-      `level.csv`
+      `Level.csv`
     );
     const fileContent = fs.readFileSync(filePath, "utf-8");
 
