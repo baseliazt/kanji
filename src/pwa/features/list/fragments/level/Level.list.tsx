@@ -7,7 +7,7 @@ import { components } from "@/api/docs/openapi";
 
 export const LevelList = () => {
   const { state, dispatch } = useContext(ListContext);
-
+  console.log(state.level.data ,'ini komponen');
   const handleClickLevelTabButton = (data: components["schemas"]["Level"]) => {
     dispatch({
       type: ListActionEnum.SetLevelData,
