@@ -116,7 +116,6 @@ export const ItemsList = () => {
     });
   };
 
-  console.log(state.kanji.data, "ini data");
   return (
     <div
       className={clsx(
