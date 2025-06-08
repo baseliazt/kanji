@@ -177,9 +177,36 @@
         "tags": [
           "Kanji"
         ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string",
+              "nullable": true,
+              "enum": [
+                "N5",
+                "N4",
+                "N3",
+                "N2",
+                "N1"
+              ]
+            },
+            "required": false,
+            "name": "level",
+            "in": "query"
+          },
+          {
+            "schema": {
+              "type": "string",
+              "nullable": true
+            },
+            "required": false,
+            "name": "id",
+            "in": "query"
+          }
+        ],
         "responses": {
-          "201": {
-            "description": "Post created",
+          "200": {
+            "description": "Kanji list retrieved",
             "content": {
               "application/json": {
                 "schema": {

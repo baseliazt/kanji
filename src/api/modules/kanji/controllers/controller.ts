@@ -1,5 +1,6 @@
-import { NextRequest } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 import { getKanjiListQueryRequest } from "../dtos/list.get";
+import { createApiResponse } from "@/api/utils/dto";
 
 export class KanjiController {
   constructor() {}
@@ -8,11 +9,26 @@ export class KanjiController {
 
     const query = {
       level: searchParams.get("level"),
-      category: searchParams.get("category"),
+      id: searchParams.get("id"),
     };
 
-    const result = getKanjiListQueryRequest.safeParse(query);
+    const queryValidation = getKanjiListQueryRequest.safeParse(query);
 
-    return result;
+    if (!queryValidation.success) {
+      NextResponse.json(
+        createApiResponse(
+          false,
+          [],
+          "Validation failed",
+          queryValidation.error.flatten().fieldErrors
+        ),
+        { status: 400 }
+      );
+      return;
+    }
+
+    return {
+      query: queryValidation.data,
+    };
   }
 }

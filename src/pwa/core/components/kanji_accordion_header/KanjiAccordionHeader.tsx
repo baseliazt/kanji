@@ -42,9 +42,7 @@ export const KanjiAccordionHeader = ({
       >
         <Checkbox
           checked={!!selected}
-          onChange={() => {
-            onSelect?.();
-          }}
+          onChange={onSelect}
         />
         <span className={clsx("text-white text-[1.25rem] font-semibold")}>
           {kanji}

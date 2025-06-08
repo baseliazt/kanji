@@ -13,15 +13,18 @@ export interface paths {
         };
         get: {
             parameters: {
-                query?: never;
+                query?: {
+                    level?: "N5" | "N4" | "N3" | "N2" | "N1" | null;
+                    id?: string | null;
+                };
                 header?: never;
                 path?: never;
                 cookie?: never;
             };
             requestBody?: never;
             responses: {
-                /** @description Post created */
-                201: {
+                /** @description Kanji list retrieved */
+                200: {
                     headers: {
                         [name: string]: unknown;
                     };

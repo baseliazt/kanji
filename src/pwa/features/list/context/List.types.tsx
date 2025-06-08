@@ -35,7 +35,7 @@ export interface ListKanji {
       id: number;
     }[];
   }[];
-  data: paths["/api/kanji"]["get"]["responses"]["201"]["content"]["application/json"]["data"];
+  data: paths["/api/kanji"]["get"]["responses"]["200"]["content"]["application/json"]["data"];
 }
 
 export enum ListActionEnum {

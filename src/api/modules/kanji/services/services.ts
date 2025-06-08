@@ -6,11 +6,14 @@ import { KunyomiService } from "../../kunyomi/services";
 import { OnyomiService } from "../../onyomi/services";
 import { KanjiListSchema } from "../schemas/schema";
 import { VocabularyService } from "../../vocabulary/services";
+import { GetKanjiListQueryRequest } from "../dtos/list.get";
 
 export class KanjiService {
   constructor() {}
 
-  async getKanjiList() {
+  async getKanjiList(query?: GetKanjiListQueryRequest) {
+    const idQuery = query?.id;
+    const levelQuery = query?.level;
     const filePath = path.join(
       process.cwd(),
       "src",
@@ -29,7 +32,7 @@ export class KanjiService {
     if (!result.success) {
       throw new Error("Internal server error");
     }
-    const kanjiList = result.data;
+    let kanjiList = result.data;
 
     const kunyomiService = new KunyomiService();
     const kunyomiList = await kunyomiService.getList();
@@ -39,6 +42,19 @@ export class KanjiService {
 
     const vocabularyService = new VocabularyService();
     const vocabularyList = await vocabularyService.getList();
+
+    if (!!idQuery) {
+      kanjiList = kanjiList.filter((kanji) =>
+        idQuery
+          .split(",")
+          .map((id) => parseInt(id))
+          .includes(kanji.id)
+      );
+    }
+
+    if (!!levelQuery) {
+      kanjiList = kanjiList.filter((kanji) => kanji.level === levelQuery);
+    }
 
     const data = kanjiList.map((kanji) => {
       return {

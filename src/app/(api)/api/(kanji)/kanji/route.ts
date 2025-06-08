@@ -7,21 +7,10 @@ export async function GET(request: NextRequest) {
   const controller = new KanjiController();
   const service = new KanjiService();
 
-  const validation = await controller.getKanjiList(request);
-  if (!validation.success) {
-    return NextResponse.json(
-      createApiResponse(
-        false,
-        [],
-        "Validation failed",
-        validation.error.flatten().fieldErrors
-      ),
-      { status: 400 }
-    );
-  }
+  const apiRequest = await controller.getKanjiList(request);
 
   try {
-    const data = await service.getKanjiList();
+    const data = await service.getKanjiList(apiRequest?.query);
 
     return NextResponse.json(
       createApiResponse(true, data, "Data fetched successfully")

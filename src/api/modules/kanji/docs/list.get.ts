@@ -5,14 +5,18 @@ import { z } from "zod";
 import { KunyomiListSchema } from "../../kunyomi/schemas/schema";
 import { OnyomiListSchema } from "../../onyomi/schemas/schema";
 import { VocabularyListSchema } from "../../vocabulary/schemas/schema";
+import { getKanjiListQueryRequest } from "../dtos/list.get";
 
 export const GetKanjiListRegistry: RouteConfig = {
   method: "get",
   path: "/api/kanji",
   tags: ["Kanji"],
+  request: {
+    query: getKanjiListQueryRequest,
+  },
   responses: {
-    201: {
-      description: "Post created",
+    200: {
+      description: "Kanji list retrieved",
       content: {
         "application/json": {
           schema: ApiResponseSchema(
