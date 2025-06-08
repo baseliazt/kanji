@@ -47,7 +47,7 @@ export class KanjiService {
       kanjiList = kanjiList.filter((kanji) =>
         idQuery
           .split(",")
-          .map((id) => parseInt(id))
+          .map((id) => id)
           .includes(kanji.id)
       );
     }

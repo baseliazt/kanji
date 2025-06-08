@@ -96,10 +96,10 @@ export type webhooks = Record<string, never>;
 export interface components {
     schemas: {
         Kunyomi: {
-            /** @example 1 */
-            id: number;
-            /** @example 1 */
-            kanji_id: number;
+            /** @example Vjo1a910QP */
+            id?: string;
+            /** @example Vjo1a910QP */
+            kanji_id?: string;
             /**
              * @description Kunyomi in hiragana
              * @example イチ
@@ -112,16 +112,10 @@ export interface components {
             "ja-Latn": string;
         };
         Onyomi: {
-            /**
-             * @description Onyomi ID
-             * @example 1
-             */
-            id: number;
-            /**
-             * @description Kanji ID
-             * @example 1
-             */
-            kanji_id: number;
+            /** @example Vjo1a910QP */
+            id?: string;
+            /** @example Vjo1a910QP */
+            kanji_id?: string;
             /**
              * @description Onyomi in katakana
              * @example イチ
@@ -134,16 +128,10 @@ export interface components {
             "ja-Latn": string;
         };
         Vocabulary: {
-            /**
-             * @description Vocabulary Id
-             * @example 1
-             */
-            id: number;
-            /**
-             * @description Kanji Id
-             * @example 1
-             */
-            kanji_id: number;
+            /** @example Vjo1a910QP */
+            id?: string;
+            /** @example Vjo1a910QP */
+            kanji_id?: string;
             /**
              * @description Vocabulary in katakana
              * @example イチ
@@ -176,11 +164,8 @@ export interface components {
             "en-US": string;
         };
         Kanji: {
-            /**
-             * @description Number of stroke
-             * @example 1
-             */
-            id: number;
+            /** @example Vjo1a910QP */
+            id?: string;
             /**
              * @description Kanji's example
              * @example 一
@@ -195,8 +180,8 @@ export interface components {
             level: string;
         };
         Level: {
-            /** @example 1 */
-            id: number;
+            /** @example Vjo1a910QP */
+            id?: string;
             /** @example N5 */
             name: string;
         };

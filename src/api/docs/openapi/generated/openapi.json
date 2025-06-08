@@ -10,12 +10,12 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "number",
-            "example": 1
+            "type": "string",
+            "example": "Vjo1a910QP"
           },
           "kanji_id": {
-            "type": "number",
-            "example": 1
+            "type": "string",
+            "example": "Vjo1a910QP"
           },
           "ja-Hira": {
             "type": "string",
@@ -29,8 +29,6 @@
           }
         },
         "required": [
-          "id",
-          "kanji_id",
           "ja-Hira",
           "ja-Latn"
         ]
@@ -39,14 +37,12 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "number",
-            "description": "Onyomi ID",
-            "example": 1
+            "type": "string",
+            "example": "Vjo1a910QP"
           },
           "kanji_id": {
-            "type": "number",
-            "description": "Kanji ID",
-            "example": 1
+            "type": "string",
+            "example": "Vjo1a910QP"
           },
           "ja-Kana": {
             "type": "string",
@@ -60,8 +56,6 @@
           }
         },
         "required": [
-          "id",
-          "kanji_id",
           "ja-Kana",
           "ja-Latn"
         ]
@@ -70,14 +64,12 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "number",
-            "description": "Vocabulary Id",
-            "example": 1
+            "type": "string",
+            "example": "Vjo1a910QP"
           },
           "kanji_id": {
-            "type": "number",
-            "description": "Kanji Id",
-            "example": 1
+            "type": "string",
+            "example": "Vjo1a910QP"
           },
           "word": {
             "type": "string",
@@ -111,8 +103,6 @@
           }
         },
         "required": [
-          "id",
-          "kanji_id",
           "word",
           "kanji",
           "romaji",
@@ -125,9 +115,8 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "number",
-            "description": "Number of stroke",
-            "example": 1
+            "type": "string",
+            "example": "Vjo1a910QP"
           },
           "kanji": {
             "type": "string",
@@ -145,7 +134,6 @@
           }
         },
         "required": [
-          "id",
           "kanji",
           "stroke",
           "level"
@@ -155,8 +143,8 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "number",
-            "example": 1
+            "type": "string",
+            "example": "Vjo1a910QP"
           },
           "name": {
             "type": "string",
@@ -164,7 +152,6 @@
           }
         },
         "required": [
-          "id",
           "name"
         ]
       }

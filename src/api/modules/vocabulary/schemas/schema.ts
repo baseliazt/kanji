@@ -1,16 +1,17 @@
 import { z } from "zod";
 import { extendZodWithOpenApi } from "@asteasolutions/zod-to-openapi";
+import { encodeId } from "@/api/utils/id";
 
 extendZodWithOpenApi(z);
 
 export const VocabularySchema = z
   .object({
     id: z
-      .preprocess((val) => Number(val), z.number())
-      .openapi({ type: "number", example: 1, description: "Vocabulary Id" }),
+      .preprocess((val) => encodeId(Number(val)), z.string())
+      .openapi({ type: "string", example: "Vjo1a910QP" }),
     kanji_id: z
-      .preprocess((val) => Number(val), z.number())
-      .openapi({ type: "number", example: 1, description: "Kanji Id" }),
+      .preprocess((val) => encodeId(Number(val)), z.string())
+      .openapi({ type: "string", example: "Vjo1a910QP" }),
     ["word"]: z
       .string()
       .openapi({ example: "イチ", description: "Vocabulary in katakana" }),
