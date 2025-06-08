@@ -4,11 +4,11 @@ import clsx from "clsx";
 export const Button = forwardRef<
   HTMLButtonElement,
   React.ButtonHTMLAttributes<HTMLButtonElement> & {
-    variant?: "primary";
-    isLoading?: boolean;
+    // variant?: "primary";
+    // isLoading?: boolean;
   }
 >((props, ref) => {
-  const { variant, isLoading, className, ...restProps } = props;
+  const { className, ...restProps } = props;
   return (
     <button
       ref={ref}
