@@ -146,7 +146,7 @@ export const ItemsList = () => {
             onSelect: () => handleSelectKanji(kanji),
           }}
           words={{
-            words: kanji.vocabulary.map((vocabulary, vocabularyIndex) => {
+            words: kanji.vocabulary.map((vocabulary) => {
               return {
                 selected: (
                   state.kanji.selected
