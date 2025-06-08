@@ -10,5 +10,6 @@ export interface Resources {
     item_header_on: "On: {{onyomi}}"
     item_content_avg: "avg: {{avg}}"
     item_content_attempt: "{{attempt}} times"
+    cta_practice: "Practice"
   }
 };

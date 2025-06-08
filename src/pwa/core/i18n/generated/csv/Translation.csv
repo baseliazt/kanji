@@ -4,3 +4,4 @@ kanji_selection,item_header_kun,Kun: {{kunyomi}}
 kanji_selection,item_header_on,On: {{onyomi}}
 kanji_selection,item_content_avg,avg: {{avg}}
 kanji_selection,item_content_attempt,{{attempt}} times
+kanji_selection,cta_practice,Practice
