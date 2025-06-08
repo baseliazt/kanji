@@ -17,7 +17,7 @@ export const Button = forwardRef<
         "grid grid-flow-col place-content-center place-items-center gap-[0.5rem]",
         "w-full",
         "bg-green-600",
-        "py-[1rem]",
+        "py-[0.625rem]",
         "rounded-[0.375rem]",
         "text-[1.125rem] text-neutral-200 disabled:text-[#5B5B5B] font-semibold",
         "hover:bg-green-600 disabled:bg-[#F6F6F6] disabled:hover:bg-[#F6F6F6]",
