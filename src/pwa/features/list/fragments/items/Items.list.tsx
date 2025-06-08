@@ -115,6 +115,8 @@ export const ItemsList = () => {
       },
     });
   };
+
+  console.log(state.kanji.data, "ini data");
   return (
     <div
       className={clsx(
@@ -122,9 +124,9 @@ export const ItemsList = () => {
         "w-full"
       )}
     >
-      {state.kanji.data?.map((kanji, index) => (
+      {state.kanji.data?.map((kanji) => (
         <KanjiAccordion
-          key={index}
+          key={kanji.id}
           kanji={{
             id: String(kanji.id),
             kanji: kanji.kanji,

@@ -22,7 +22,6 @@ export const KanjiAccordion = ({ kanji, words }: KanjiAccordionProps) => {
   };
   return (
     <div
-      key={kanji?.id}
       className={clsx(
         "grid grid-cols-1 place-content-start place-items-start",
         isOpen ? "gap-[0.75rem]" : "gap-[0rem]",
@@ -40,7 +39,7 @@ export const KanjiAccordion = ({ kanji, words }: KanjiAccordionProps) => {
         isOpen={isOpen}
         onClick={handleClickAccordionButton}
       />
-      <KanjiAccordionBody {...words} isOpen={isOpen} />
+      {isOpen && <KanjiAccordionBody {...words} isOpen={isOpen} />}
     </div>
   );
 };

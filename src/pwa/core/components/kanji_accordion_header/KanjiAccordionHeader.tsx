@@ -43,7 +43,6 @@ export const KanjiAccordionHeader = ({
         <Checkbox
           checked={!!selected}
           onChange={() => {
-            console.log("ini apa");
             onSelect?.();
           }}
         />
