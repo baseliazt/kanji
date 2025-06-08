@@ -11,7 +11,7 @@ export default async function Home() {
     params: {
       query: {
         level: levelData?.data?.find((_, index) => index === 0)
-          ?.id as KanjiLevel,
+          ?.name as KanjiLevel,
       },
     },
   });
