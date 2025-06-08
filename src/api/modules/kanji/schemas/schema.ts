@@ -7,7 +7,8 @@ extendZodWithOpenApi(z);
 export const KanjiSchema = z
   .object({
     id: z
-      .preprocess((val) => encodeId(Number(val)), z.string())
+      .string()
+      .transform((val) => encodeId(Number(val)))
       .openapi({ type: "string", example: "Vjo1a910QP" }),
     kanji: z
       .string()

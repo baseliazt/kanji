@@ -97,9 +97,9 @@ export interface components {
     schemas: {
         Kunyomi: {
             /** @example Vjo1a910QP */
-            id?: string;
+            id: string;
             /** @example Vjo1a910QP */
-            kanji_id?: string;
+            kanji_id: string;
             /**
              * @description Kunyomi in hiragana
              * @example イチ
@@ -113,14 +113,14 @@ export interface components {
         };
         Onyomi: {
             /** @example Vjo1a910QP */
-            id?: string;
+            id: string;
             /** @example Vjo1a910QP */
-            kanji_id?: string;
+            kanji_id: string;
             /**
              * @description Onyomi in katakana
              * @example イチ
              */
-            "ja-Kana": string;
+            "ja-Hira": string;
             /**
              * @description Romanized Japanese
              * @example ichi
@@ -129,9 +129,9 @@ export interface components {
         };
         Vocabulary: {
             /** @example Vjo1a910QP */
-            id?: string;
+            id: string;
             /** @example Vjo1a910QP */
-            kanji_id?: string;
+            kanji_id: string;
             /**
              * @description Vocabulary in katakana
              * @example イチ
@@ -165,7 +165,7 @@ export interface components {
         };
         Kanji: {
             /** @example Vjo1a910QP */
-            id?: string;
+            id: string;
             /**
              * @description Kanji's example
              * @example 一
@@ -181,7 +181,7 @@ export interface components {
         };
         Level: {
             /** @example Vjo1a910QP */
-            id?: string;
+            id: string;
             /** @example N5 */
             name: string;
         };

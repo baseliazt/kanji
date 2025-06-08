@@ -7,10 +7,12 @@ extendZodWithOpenApi(z);
 export const VocabularySchema = z
   .object({
     id: z
-      .preprocess((val) => encodeId(Number(val)), z.string())
+      .string()
+      .transform((val) => encodeId(Number(val)))
       .openapi({ type: "string", example: "Vjo1a910QP" }),
     kanji_id: z
-      .preprocess((val) => encodeId(Number(val)), z.string())
+      .string()
+      .transform((val) => encodeId(Number(val)))
       .openapi({ type: "string", example: "Vjo1a910QP" }),
     ["word"]: z
       .string()

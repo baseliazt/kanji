@@ -30,9 +30,9 @@ export interface ListLevel {
 
 export interface ListKanji {
   selected: {
-    id: number;
+    id: string;
     vocabulary: {
-      id: number;
+      id: string;
     }[];
   }[];
   data: paths["/api/kanji"]["get"]["responses"]["200"]["content"]["application/json"]["data"];

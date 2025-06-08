@@ -6,6 +6,6 @@
 export interface OnyomiCSVSchema {
   id: string;
   kanji_id: string;
-  ['ja-Kana']: string;
+  ['ja-Hira']: string;
   ['ja-Latn']: string;
 }

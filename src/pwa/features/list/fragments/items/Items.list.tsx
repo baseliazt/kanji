@@ -140,7 +140,7 @@ export const ItemsList = () => {
               ? undefined
               : t("kanji_selection:item_header_on", {
                   onyomi: kanji.onyomi
-                    .map((onyomi) => onyomi["ja-Kana"])
+                    .map((onyomi) => onyomi["ja-Hira"])
                     .join(", "),
                 }),
             selected:

@@ -7,12 +7,14 @@ extendZodWithOpenApi(z);
 export const OnyomiSchema = z
   .object({
     id: z
-      .preprocess((val) => encodeId(Number(val)), z.string())
+      .string()
+      .transform((val) => encodeId(Number(val)))
       .openapi({ type: "string", example: "Vjo1a910QP" }),
     kanji_id: z
-      .preprocess((val) => encodeId(Number(val)), z.string())
+      .string()
+      .transform((val) => encodeId(Number(val)))
       .openapi({ type: "string", example: "Vjo1a910QP" }),
-    ["ja-Kana"]: z
+    ["ja-Hira"]: z
       .string()
       .openapi({ example: "イチ", description: "Onyomi in katakana" }),
     ["ja-Latn"]: z
