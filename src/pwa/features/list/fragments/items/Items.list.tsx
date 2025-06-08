@@ -27,25 +27,27 @@ export const ItemsList = () => {
       payload: {
         ...state.kanji,
         selected: isKanjiExist
-          ? state.kanji.selected.map((selectedKanji) => {
-              if (selectedKanji.id === data.id) {
-                const isAllVocabularySelected =
-                  selectedKanji.vocabulary.length === data.vocabulary.length;
+          ? state.kanji.selected
+              .map((selectedKanji) => {
+                if (selectedKanji.id === data.id) {
+                  const isAllVocabularySelected =
+                    selectedKanji.vocabulary.length === data.vocabulary.length;
+                  return {
+                    ...selectedKanji,
+                    vocabulary: isAllVocabularySelected
+                      ? []
+                      : data.vocabulary.map((vocabulary) => {
+                          return {
+                            id: vocabulary.id,
+                          };
+                        }),
+                  };
+                }
                 return {
                   ...selectedKanji,
-                  vocabulary: isAllVocabularySelected
-                    ? []
-                    : data.vocabulary.map((vocabulary) => {
-                        return {
-                          id: vocabulary.id,
-                        };
-                      }),
                 };
-              }
-              return {
-                ...selectedKanji,
-              };
-            }).filter((kanji) => !!kanji.vocabulary.length)
+              })
+              .filter((kanji) => !!kanji.vocabulary.length)
           : [
               ...state.kanji.selected,
               {
@@ -124,6 +126,7 @@ export const ItemsList = () => {
         <KanjiAccordion
           key={index}
           kanji={{
+            id: String(kanji.id),
             kanji: kanji.kanji,
             kun: !kanji.kunyomi.length
               ? undefined

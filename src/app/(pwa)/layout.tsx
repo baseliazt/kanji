@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import clsx from "clsx";
@@ -12,6 +12,10 @@ export const metadata: Metadata = {
   title: "Kantabi",
   description: "Kanji Roadmap",
   icons: "/logo/small.svg",
+};
+
+export const viewport: Viewport = {
+  userScalable: false,
 };
 
 export default function RootLayout({

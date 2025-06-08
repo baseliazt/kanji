@@ -4,6 +4,7 @@ import { motion } from "framer-motion";
 import { KanjiItem, KanjiItemProps } from "../kanji_item";
 
 export interface KanjiAccordionBodyProps {
+  id?: string;
   isOpen?: boolean;
   words?: KanjiItemProps[];
 }

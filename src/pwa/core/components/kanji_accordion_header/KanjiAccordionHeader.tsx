@@ -5,6 +5,7 @@ import { Checkbox } from "../checkbox";
 import { Divider } from "../divider";
 
 export interface KanjiAccordionHeaderProps {
+  id?: string;
   kanji?: string;
   kun?: string;
   on?: string;
@@ -26,7 +27,7 @@ export const KanjiAccordionHeader = ({
   onSelect,
 }: KanjiAccordionHeaderProps) => {
   return (
-    <button
+    <div
       className={clsx(
         "grid grid-flow-col items-center content-center justify-between justify-items-start gap-[0rem]",
         "w-full",
@@ -39,7 +40,13 @@ export const KanjiAccordionHeader = ({
           "w-full"
         )}
       >
-        <Checkbox checked={!!selected} onChange={onSelect} />
+        <Checkbox
+          checked={!!selected}
+          onChange={() => {
+            console.log("ini apa");
+            onSelect?.();
+          }}
+        />
         <span className={clsx("text-white text-[1.25rem] font-semibold")}>
           {kanji}
         </span>
@@ -68,18 +75,19 @@ export const KanjiAccordionHeader = ({
         className={clsx(
           "grid grid-flow-col items-center content-center justify-between justify-items-start gap-[0.5rem]"
         )}
-        onClick={onClick}
       >
         {progress && (
           <span className={clsx("text-neutral-200 text-[0.75rem] font-bold")}>
             {progress}
           </span>
         )}
-        <SVGIcon
-          name={isOpen ? "ChevronUp" : "ChevronDown"}
-          className={clsx("w-[1.5rem] h-[1.5rem]", "text-neutral-400")}
-        />
+        <button onClick={onClick}>
+          <SVGIcon
+            name={isOpen ? "ChevronUp" : "ChevronDown"}
+            className={clsx("w-[1.5rem] h-[1.5rem]", "text-neutral-400")}
+          />
+        </button>
       </div>
-    </button>
+    </div>
   );
 };

@@ -11,7 +11,7 @@ import {
 } from "../kanji_accordion_body";
 
 export interface KanjiAccordionProps {
-  words?: Omit<KanjiAccordionBodyProps, "isOpen">;
+  words?: Omit<KanjiAccordionBodyProps, "isOpen" | "onClick">;
   kanji?: KanjiAccordionHeaderProps;
 }
 
@@ -22,6 +22,7 @@ export const KanjiAccordion = ({ kanji, words }: KanjiAccordionProps) => {
   };
   return (
     <div
+      key={kanji?.id}
       className={clsx(
         "grid grid-cols-1 place-content-start place-items-start",
         isOpen ? "gap-[0.75rem]" : "gap-[0rem]",
