@@ -14,8 +14,8 @@
             "example": 1
           },
           "kanji_id": {
-            "type": "string",
-            "example": "1"
+            "type": "number",
+            "example": 1
           },
           "ja-Hira": {
             "type": "string",
@@ -40,11 +40,13 @@
         "properties": {
           "id": {
             "type": "number",
+            "description": "Onyomi ID",
             "example": 1
           },
           "kanji_id": {
-            "type": "string",
-            "example": "1"
+            "type": "number",
+            "description": "Kanji ID",
+            "example": 1
           },
           "ja-Kana": {
             "type": "string",
@@ -69,11 +71,13 @@
         "properties": {
           "id": {
             "type": "number",
+            "description": "Vocabulary Id",
             "example": 1
           },
           "kanji_id": {
-            "type": "string",
-            "example": "1"
+            "type": "number",
+            "description": "Kanji Id",
+            "example": 1
           },
           "word": {
             "type": "string",
@@ -121,8 +125,9 @@
         "type": "object",
         "properties": {
           "id": {
-            "type": "string",
-            "example": "1"
+            "type": "number",
+            "description": "Number of stroke",
+            "example": 1
           },
           "kanji": {
             "type": "string",

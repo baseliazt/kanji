@@ -8,7 +8,9 @@ export const KunyomiSchema = z
     id: z
       .preprocess((val) => Number(val), z.number())
       .openapi({ type: "number", example: 1 }),
-    kanji_id: z.string().openapi({ example: "1" }),
+    kanji_id: z
+      .preprocess((val) => Number(val), z.number())
+      .openapi({ type: "number", example: 1 }),
     ["ja-Hira"]: z
       .string()
       .openapi({ example: "イチ", description: "Kunyomi in hiragana" }),

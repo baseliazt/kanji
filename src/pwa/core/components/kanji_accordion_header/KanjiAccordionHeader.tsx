@@ -10,7 +10,9 @@ export interface KanjiAccordionHeaderProps {
   on?: string;
   progress?: string;
   isOpen?: boolean;
+  selected?: boolean;
   onClick?: () => void;
+  onSelect?: () => void;
 }
 
 export const KanjiAccordionHeader = ({
@@ -19,7 +21,9 @@ export const KanjiAccordionHeader = ({
   on,
   progress,
   isOpen = false,
+  selected,
   onClick,
+  onSelect,
 }: KanjiAccordionHeaderProps) => {
   return (
     <button
@@ -28,7 +32,6 @@ export const KanjiAccordionHeader = ({
         "w-full",
         "cursor-pointer"
       )}
-      onClick={onClick}
     >
       <div
         className={clsx(
@@ -36,7 +39,7 @@ export const KanjiAccordionHeader = ({
           "w-full"
         )}
       >
-        <Checkbox />
+        <Checkbox checked={!!selected} onChange={onSelect} />
         <span className={clsx("text-white text-[1.25rem] font-semibold")}>
           {kanji}
         </span>
@@ -65,6 +68,7 @@ export const KanjiAccordionHeader = ({
         className={clsx(
           "grid grid-flow-col items-center content-center justify-between justify-items-start gap-[0.5rem]"
         )}
+        onClick={onClick}
       >
         {progress && (
           <span className={clsx("text-neutral-200 text-[0.75rem] font-bold")}>

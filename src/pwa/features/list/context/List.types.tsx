@@ -29,6 +29,12 @@ export interface ListLevel {
 }
 
 export interface ListKanji {
+  selected: {
+    id: number;
+    vocabulary: {
+      id: number;
+    }[];
+  }[];
   data: paths["/api/kanji"]["get"]["responses"]["201"]["content"]["application/json"]["data"];
 }
 

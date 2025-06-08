@@ -7,8 +7,10 @@ export const VocabularySchema = z
   .object({
     id: z
       .preprocess((val) => Number(val), z.number())
-      .openapi({ type: "number", example: 1 }),
-    kanji_id: z.string().openapi({ example: "1" }),
+      .openapi({ type: "number", example: 1, description: "Vocabulary Id" }),
+    kanji_id: z
+      .preprocess((val) => Number(val), z.number())
+      .openapi({ type: "number", example: 1, description: "Kanji Id" }),
     ["word"]: z
       .string()
       .openapi({ example: "イチ", description: "Vocabulary in katakana" }),

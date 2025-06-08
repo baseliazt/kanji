@@ -96,7 +96,7 @@ export interface components {
             /** @example 1 */
             id: number;
             /** @example 1 */
-            kanji_id: string;
+            kanji_id: number;
             /**
              * @description Kunyomi in hiragana
              * @example イチ
@@ -109,10 +109,16 @@ export interface components {
             "ja-Latn": string;
         };
         Onyomi: {
-            /** @example 1 */
+            /**
+             * @description Onyomi ID
+             * @example 1
+             */
             id: number;
-            /** @example 1 */
-            kanji_id: string;
+            /**
+             * @description Kanji ID
+             * @example 1
+             */
+            kanji_id: number;
             /**
              * @description Onyomi in katakana
              * @example イチ
@@ -125,10 +131,16 @@ export interface components {
             "ja-Latn": string;
         };
         Vocabulary: {
-            /** @example 1 */
+            /**
+             * @description Vocabulary Id
+             * @example 1
+             */
             id: number;
-            /** @example 1 */
-            kanji_id: string;
+            /**
+             * @description Kanji Id
+             * @example 1
+             */
+            kanji_id: number;
             /**
              * @description Vocabulary in katakana
              * @example イチ
@@ -161,8 +173,11 @@ export interface components {
             "en-US": string;
         };
         Kanji: {
-            /** @example 1 */
-            id: string;
+            /**
+             * @description Number of stroke
+             * @example 1
+             */
+            id: number;
             /**
              * @description Kanji's example
              * @example 一

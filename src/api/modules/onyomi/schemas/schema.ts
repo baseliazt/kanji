@@ -7,8 +7,10 @@ export const OnyomiSchema = z
   .object({
     id: z
       .preprocess((val) => Number(val), z.number())
-      .openapi({ type: "number", example: 1 }),
-    kanji_id: z.string().openapi({ example: "1" }),
+      .openapi({ type: "number", example: 1, description: "Onyomi ID" }),
+    kanji_id: z
+      .preprocess((val) => Number(val), z.number())
+      .openapi({ type: "number", example: 1, description: "Kanji ID" }),
     ["ja-Kana"]: z
       .string()
       .openapi({ example: "イチ", description: "Onyomi in katakana" }),

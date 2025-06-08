@@ -8,6 +8,7 @@ export const initialState: ListInitialStateType = {
     data: [],
   },
   kanji: {
+    selected: [],
     data: [],
   },
 };

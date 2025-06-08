@@ -18,6 +18,7 @@ export interface KanjiItemProps {
   level?: WordLevelLabelProps;
   attempt?: WordAttemptLabelProps;
   speed?: WordSpeedLabelProps;
+  onSelect?: () => void;
 }
 
 export const KanjiItem = ({
@@ -28,6 +29,7 @@ export const KanjiItem = ({
   level,
   attempt,
   speed,
+  onSelect,
 }: KanjiItemProps) => {
   return (
     <div
@@ -39,7 +41,7 @@ export const KanjiItem = ({
         "px-[0.5rem] py-[0.5rem]"
       )}
     >
-      <Checkbox shape="circle" />
+      <Checkbox shape="circle" checked={selected} onChange={onSelect} />
       <div
         className={clsx(
           "grid grid-cols-1 place-content-start place-items-start gap-[0.5rem]",
@@ -68,7 +70,9 @@ export const KanjiItem = ({
             className={clsx("w-[1rem] h-[1rem]", "text-[white]")}
             strokeWidth={1.25}
           />
-          <span className={clsx("text-neutral-200 text-[13px] font-neutral italic")}>
+          <span
+            className={clsx("text-neutral-200 text-[13px] font-neutral italic")}
+          >
             {translation}
           </span>
         </div>
