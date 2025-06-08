@@ -1,8 +1,9 @@
 import { z } from "zod";
 import { Kanji } from "../schemas/schema";
+import { KanjiLevelZod } from "../../level/dtos/level_list.get";
 
 export const getKanjiListQueryRequest = z.object({
-  level: z.enum(["N5", "N4", "N3", "N2", "N1"]).optional().nullable(),
+  level: KanjiLevelZod,
   id: z.string().optional().nullable(),
 });
 
