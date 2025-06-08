@@ -45,7 +45,7 @@ export const ItemsList = () => {
               return {
                 ...selectedKanji,
               };
-            })
+            }).filter((kanji) => !!kanji.vocabulary.length)
           : [
               ...state.kanji.selected,
               {

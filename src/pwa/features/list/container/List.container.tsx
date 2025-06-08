@@ -4,6 +4,7 @@ import { ItemsList } from "../fragments/items";
 import clsx from "clsx";
 import { HeaderList } from "../fragments/header";
 import { LevelList } from "../fragments/level";
+import { CTAList } from "../fragments/cta";
 
 export const ListContainer = () => {
   return (
@@ -35,6 +36,7 @@ export const ListContainer = () => {
 
         <ItemsList />
       </div>
+      <CTAList />
     </>
   );
 };
