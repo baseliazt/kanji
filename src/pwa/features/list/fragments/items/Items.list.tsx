@@ -6,7 +6,7 @@ import clsx from "clsx";
 import { KanjiAccordion } from "@/pwa/core/components/kanji_accordion";
 import { useTranslation } from "@/pwa/i18n/hooks";
 import { quoteCase, titleCase } from "@/pwa/core/lib/formatters/string";
-import { components } from "@/api/docs/openapi";
+import { components } from "@/api/docs/openapi/generated/openapi";
 
 export const ItemsList = () => {
   const { t } = useTranslation();

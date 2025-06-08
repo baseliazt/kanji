@@ -1,5 +1,5 @@
 // app/api/openapi/route.ts
-import { openApiDocument } from "@/shared/lib/openapi";
+import { openApiDocument } from "@/api/utils/openapi";
 import { NextResponse } from "next/server";
 
 export function GET() {

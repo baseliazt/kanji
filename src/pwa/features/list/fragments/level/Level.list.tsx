@@ -3,7 +3,7 @@ import { useContext } from "react";
 import clsx from "clsx";
 import { LevelTabButton } from "@/pwa/core/components/level_tab_button";
 import { ListActionEnum, ListContext } from "../../context";
-import { components } from "@/api/docs/openapi";
+import { components } from "@/api/docs/openapi/generated/openapi";
 
 export const LevelList = () => {
   const { state, dispatch } = useContext(ListContext);
