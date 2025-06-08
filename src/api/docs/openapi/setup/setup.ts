@@ -1,7 +1,8 @@
 // scripts/export-openapi.ts
-import { openApiDocument } from "@/api/utils/openapi";
+
 import { runCommand } from "@/shared/scripts";
 import { writeFileSync } from "fs";
+import { openApiDocument } from "../documents";
 
 async function main() {
   try {

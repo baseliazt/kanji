@@ -6,7 +6,9 @@ const inputCsv = path.join(
   process.cwd(),
   "src",
   "pwa",
+  "core",
   "i18n",
+  "generated",
   "csv",
   "Translation.csv"
 );
@@ -14,7 +16,9 @@ const outputTs = path.join(
   process.cwd(),
   "src",
   "pwa",
+  "core",
   "i18n",
+  "generated",
   "types",
   "resources.ts"
 );
@@ -71,4 +75,4 @@ lines.push("};");
 // Simpan ke file
 fs.writeFileSync(outputTs, lines.join("\n"), "utf-8");
 
-console.log("✅ resource.ts berhasil dibuat!");
+console.log("✅ Generated Resources Interface successfully");

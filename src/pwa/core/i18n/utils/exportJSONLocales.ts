@@ -7,12 +7,22 @@ const inputFile = path.join(
   process.cwd(),
   "src",
   "pwa",
+  "core",
   "i18n",
+  "generated",
   "csv",
   "Translation.csv"
 );
 
-const outputBase = path.join(process.cwd(), "src", "pwa", "i18n", "locales");
+const outputBase = path.join(
+  process.cwd(),
+  "src",
+  "pwa",
+  "core",
+  "i18n",
+  "generated",
+  "locales"
+);
 
 type Row = {
   namespace: string;

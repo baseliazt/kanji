@@ -10,6 +10,6 @@ export const nextI18NextConfig: UserConfig = {
     defaultLocale: fallbackLng,
     locales: languages,
   },
-  localePath: path.resolve("./locales"),
+  localePath: path.resolve("./generated/locales"),
   reloadOnPrerender: process.env.NODE_ENV === "development",
 };

@@ -9,10 +9,7 @@
     "lint": "next lint",
     "setup:csv-database": "tsx src/api/database/csv/setup.ts",
     "export:openapi": "tsx src/api/docs/openapi/setup/setup.ts",
-    "fetch:translation-sheets": "tsx src/shared/scripts/fetch-translation-sheets.ts",
-    "export:i18n-locales": "tsx src/shared/scripts/export-i18n-locales.ts",
-    "export:i18n-resources-interface": "tsx src/shared/scripts/export-i18n-resources-interface.ts",
-    "export:i18n-resources": "tsx src/shared/scripts/export-i18n-resources.ts"
+    "setup:i18n": "tsx src/pwa/core/i18n/utils/setup.ts"
   },
   "dependencies": {
     "@asteasolutions/zod-to-openapi": "^7.3.2",

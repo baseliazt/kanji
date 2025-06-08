@@ -1,5 +1,5 @@
 "use client";
-import { useTranslation } from "@/pwa/i18n/hooks";
+import { useTranslation } from "@/pwa/core/i18n/hooks";
 import clsx from "clsx";
 
 export const HeaderList = () => {

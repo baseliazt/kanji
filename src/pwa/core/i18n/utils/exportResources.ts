@@ -6,18 +6,20 @@ const localesPath = path.join(
   process.cwd(),
   "src",
   "pwa",
+  "core",
   "i18n",
+  "generated",
   "locales"
-  //   "../src/pwa/i18n/locales"
 );
 const outputPath = path.join(
   process.cwd(),
   "src",
   "pwa",
+  "core",
   "i18n",
-  "utils",
-  "resource.ts"
-  // __dirname, "../src/pwa/i18n/utils/resources.ts"
+  "generated",
+  "constants",
+  "resources.ts"
 );
 
 const languages = fs.readdirSync(localesPath);
@@ -34,7 +36,7 @@ for (const lang of languages) {
     const ns = file.replace(".json", "");
     const importName = `${lang}_${ns}`.replace(/-/g, "_");
     imports.push(
-      `import ${importName} from "@/pwa/i18n/locales/${lang}/${file}";`
+      `import ${importName} from "@/pwa/core/i18n/generated/locales/${lang}/${file}";`
     );
     nsObject.push(`"${ns}": ${importName}`);
   }
@@ -52,4 +54,4 @@ export default resources;
 `;
 
 fs.writeFileSync(outputPath, finalOutput, "utf-8");
-console.log("✅ Generated i18n resources.ts successfully.");
+console.log("✅ Generated Resources Constants successfully.");

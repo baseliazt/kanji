@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import clsx from "clsx";
-import { LanguageProvider } from "@/pwa/i18n/context/LanguageProvider";
+import { LanguageProvider } from "@/pwa/core/i18n/context/LanguageProvider";
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
