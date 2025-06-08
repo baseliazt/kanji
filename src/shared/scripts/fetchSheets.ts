@@ -1,13 +1,7 @@
 import fs from "fs";
-import path from "path";
 import https from "https";
-import { DATABASE_SHEETS } from "../constants";
 
-function getCsvUrl(sheetId: string, gid: string) {
-  return `https://docs.google.com/spreadsheets/d/${sheetId}/export?format=csv&gid=${gid}`;
-}
-
-function fetchCSV(
+export function fetchSheets(
   url: string,
   outputPath: string,
   maxRedirects = 5
@@ -23,7 +17,7 @@ function fetchCSV(
           const location = res.headers.location;
           if (location) {
             console.log(`Redirecting to ${location}`);
-            fetchCSV(location, outputPath, maxRedirects - 1)
+            fetchSheets(location, outputPath, maxRedirects - 1)
               .then(resolve)
               .catch(reject);
           } else {
@@ -57,27 +51,3 @@ function fetchCSV(
       });
   });
 }
-
-async function main() {
-  try {
-    // Loop fetch secara berurutan
-    for (const sheet of DATABASE_SHEETS) {
-      const url = getCsvUrl(sheet.sheetId, sheet.gid);
-      const outputPath = path.join(
-        process.cwd(),
-        "src",
-        "data",
-        "csv",
-        sheet.output
-      );
-      console.log(`⏳ Fetching CSV from ${url}...`);
-      await fetchCSV(url, outputPath);
-    }
-    console.log("🎉 All CSVs fetched!");
-  } catch (error: any) {
-    console.error("❌ Error:", error.message);
-    process.exit(1);
-  }
-}
-
-main();

@@ -3,15 +3,22 @@ import path from "path";
 import Papa from "papaparse";
 
 // === Konfigurasi Folder ===
-const inputDir = path.join(__dirname, "../../data/csv");
+const inputDir = path.join(process.cwd(), "src", "data", "csv");
 
 function getOutputDir(moduleName: string): string {
   const snakeName = toSnakeCase(moduleName);
-  return path.join(__dirname, `../../api/modules/${snakeName}/schemas`);
+  return path.join(
+    process.cwd(),
+    "src",
+    "api",
+    "modules",
+    snakeName,
+    "schemas"
+  );
 }
 
 // === Fungsi Utama ===
-function generateSchemas() {
+export function generateSchemas() {
   const csvFiles = getCsvFiles(inputDir);
 
   csvFiles.forEach((file) => {
@@ -84,6 +91,3 @@ function ensureDir(dir: string) {
     fs.mkdirSync(dir, { recursive: true });
   }
 }
-
-// === Eksekusi ===
-generateSchemas();
