@@ -2,21 +2,28 @@
 import { useContext } from "react";
 import clsx from "clsx";
 import { LevelTabButton } from "@/pwa/core/components/level_tab_button";
-import { ListActionEnum, ListContext } from "../../context";
+import { ListContext } from "../../context";
 import { components } from "@/api/docs/openapi/generated/openapi";
+import { useRouter, useSearchParams } from "next/navigation";
 
 export const LevelList = () => {
-  const { state, dispatch } = useContext(ListContext);
+  const { state } = useContext(ListContext);
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const level = searchParams.get("level");
+
+  const selectedLevel = !level
+    ? state.level.data?.find((item) => item.name === "N5")
+    : state.level.data?.find((item) => item.name === level);
 
   const handleClickLevelTabButton = (data: components["schemas"]["Level"]) => {
-    dispatch({
-      type: ListActionEnum.SetLevelData,
-      payload: {
-        ...state.level,
-        selected: data,
-      },
-    });
+    if (data.name === "N5") {
+      router.push("/");
+    } else {
+      router.push(`?level=${data.name}`);
+    }
   };
+
   return (
     <div
       className={clsx(
@@ -27,7 +34,7 @@ export const LevelList = () => {
       {state.level.data?.map((level) => (
         <LevelTabButton
           key={level.id}
-          selected={level.id === state.level.selected?.id}
+          selected={selectedLevel?.id === level?.id}
           onClick={() => handleClickLevelTabButton(level)}
         >
           {level.name}

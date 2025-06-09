@@ -1,6 +1,17 @@
 "use client";
-import React, { createContext, useReducer, Dispatch } from "react";
-import { ListActions, ListInitialStateType } from "./List.types";
+import React, {
+  createContext,
+  useReducer,
+  Dispatch,
+  useEffect,
+  useRef,
+} from "react";
+import isEqual from "lodash.isequal";
+import {
+  ListActionEnum,
+  ListActions,
+  ListInitialStateType,
+} from "./List.types";
 import {
   ListKanjiReducers,
   ListLevelReducers,
@@ -30,6 +41,16 @@ const ListProvider = (props: {
   initialState: ListInitialStateType;
 }) => {
   const [state, dispatch] = useReducer(mainReducer, props.initialState);
+  const prevStateRef = useRef(initialState);
+  console.log(initialState.kanji, prevStateRef.current.kanji, "ini context");
+  useEffect(() => {
+    if (!isEqual(prevStateRef.current.kanji, initialState.kanji)) {
+      dispatch({
+        type: ListActionEnum.SetKanjiData,
+        payload: initialState.kanji,
+      });
+    }
+  }, [initialState.kanji]);
 
   return (
     <ListContext.Provider value={{ state, dispatch }}>

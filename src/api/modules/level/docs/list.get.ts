@@ -8,7 +8,7 @@ export const GetLevelListRegistry: RouteConfig = {
   path: "/api/level",
   tags: ["Kanji"],
   responses: {
-    201: {
+    200: {
       description: "Post created",
       content: {
         "application/json": {

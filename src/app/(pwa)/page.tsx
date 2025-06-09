@@ -4,14 +4,23 @@ import serverClient from "@/pwa/core/lib/api/server";
 import { ListContainer } from "@/pwa/features/list/container";
 import { initialState, ListProvider } from "@/pwa/features/list/context";
 
-export default async function Home() {
+export default async function Home({
+  searchParams,
+}: {
+  searchParams: Promise<{ level?: string }>;
+}) {
+  const query = await searchParams;
+
   let state = initialState;
   const { data: levelData } = await serverClient.GET("/api/level");
+
+  const selectedLevel = !query.level
+    ? levelData?.data?.find((item) => item.name === "N5")
+    : levelData?.data?.find((item) => item.name === query.level);
   const { data: kanjiData } = await serverClient.GET("/api/kanji", {
     params: {
       query: {
-        level: levelData?.data?.find((_, index) => index === 0)
-          ?.name as KanjiLevel,
+        level: (selectedLevel?.name as KanjiLevel) ?? "N5",
       },
     },
   });
@@ -24,7 +33,6 @@ export default async function Home() {
     },
     level: {
       ...state.level,
-      selected: levelData?.data?.find((_, index) => index === 0),
       data: levelData?.data ?? [],
     },
   };

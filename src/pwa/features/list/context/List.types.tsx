@@ -24,8 +24,7 @@ export interface ListSettings {
 }
 
 export interface ListLevel {
-  selected?: components["schemas"]["Level"];
-  data: paths["/api/level"]["get"]["responses"]["201"]["content"]["application/json"]["data"];
+  data: paths["/api/level"]["get"]["responses"]["200"]["content"]["application/json"]["data"];
 }
 
 export interface ListKanji {

@@ -68,7 +68,7 @@ export interface paths {
             requestBody?: never;
             responses: {
                 /** @description Post created */
-                201: {
+                200: {
                     headers: {
                         [name: string]: unknown;
                     };

@@ -4,9 +4,16 @@ import { useContext } from "react";
 import { ListReactQueryKey } from "../keys";
 import serverClient from "@/pwa/core/lib/api/server";
 import { KanjiLevel } from "@/api/modules/level/dtos/level_list.get";
+import { useSearchParams } from "next/navigation";
 
 export const useGetKanjiList = () => {
   const { state, dispatch } = useContext(ListContext);
+  const searchParams = useSearchParams();
+  const level = searchParams.get("level");
+
+  const selectedLevel = !level
+    ? state.level.data?.find((item) => item.name === "N5")
+    : state.level.data?.find((item) => item.name === level);
 
   const mutation = useMutation({
     mutationKey: ListReactQueryKey.GetKanjiList(),
@@ -14,7 +21,7 @@ export const useGetKanjiList = () => {
       return serverClient.GET("/api/kanji", {
         params: {
           query: {
-            level: (state.level.selected?.name as KanjiLevel) ?? "N5",
+            level: (selectedLevel?.name as KanjiLevel) ?? "N5",
           },
         },
       });

@@ -7,10 +7,17 @@ import { KanjiAccordion } from "@/pwa/core/components/kanji_accordion";
 import { useTranslation } from "@/pwa/core/i18n/hooks";
 import { quoteCase, titleCase } from "@/pwa/core/lib/formatters/string";
 import { components } from "@/api/docs/openapi/generated/openapi";
+import { useSearchParams } from "next/navigation";
 
 export const ItemsList = () => {
   const { t } = useTranslation();
   const { state, dispatch } = useContext(ListContext);
+  const searchParams = useSearchParams();
+  const level = searchParams.get("level");
+
+  const selectedLevel = !level
+    ? state.level.data?.find((item) => item.name === "N5")
+    : state.level.data?.find((item) => item.name === level);
 
   const handleSelectKanji = (
     data: components["schemas"]["Kanji"] & {
@@ -163,7 +170,7 @@ export const ItemsList = () => {
                 romaji: titleCase(vocabulary.romaji),
                 translation: quoteCase(vocabulary["en-US"]),
                 level: {
-                  label: state.level.selected?.name,
+                  label: selectedLevel?.name,
                 },
                 speed: {
                   label: "avg: 2.3 sec",
