@@ -1,4 +1,4 @@
-import { components, paths } from "@/api/docs/openapi/generated/openapi";
+import { paths } from "@/api/docs/openapi/generated/openapi";
 
 type ActionMap<M extends { [index: string]: any }> = {
   [Key in keyof M]: M[Key] extends undefined
