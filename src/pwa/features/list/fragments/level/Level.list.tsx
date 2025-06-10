@@ -5,23 +5,28 @@ import { LevelTabButton } from "@/pwa/core/components/level_tab_button";
 import { ListContext } from "../../context";
 import { components } from "@/api/docs/openapi/generated/openapi";
 import { useRouter, useSearchParams } from "next/navigation";
+import { useGetKanjiList } from "../../react-query/hooks";
 
 export const LevelList = () => {
   const { state } = useContext(ListContext);
   const router = useRouter();
   const searchParams = useSearchParams();
   const level = searchParams.get("level");
+  const { mutateAsync: getKanjiList } = useGetKanjiList();
 
   const selectedLevel = !level
     ? state.level.data?.find((item) => item.name === "N5")
     : state.level.data?.find((item) => item.name === level);
 
-  const handleClickLevelTabButton = (data: components["schemas"]["Level"]) => {
+  const handleClickLevelTabButton = async (
+    data: components["schemas"]["Level"]
+  ) => {
     if (data.name === "N5") {
       router.push("/");
     } else {
       router.push(`?level=${data.name}`);
     }
+    await getKanjiList(data);
   };
 
   return (

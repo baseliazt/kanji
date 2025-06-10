@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import clsx from "clsx";
 import { LanguageProvider } from "@/pwa/core/i18n/context/LanguageProvider";
+import { ReactQueryProvider } from "@/pwa/core/lib/react-query";
 const inter = Inter({
   variable: "--font-inter",
   subsets: ["latin"],
@@ -25,25 +26,27 @@ export default function RootLayout({
 }>) {
   return (
     <LanguageProvider>
-      <html lang="en">
-        <body
-          className={clsx(
-            inter.variable,
-            "antialiased",
-            "grid grid-cols-1 items-start content-start justify-center justify-items-center",
-            "w-full"
-          )}
-        >
-          <main
+      <ReactQueryProvider>
+        <html lang="en">
+          <body
             className={clsx(
-              "grid grid-cols-1 place-content-start place-items-start",
-              "max-w-[1200px] w-full"
+              inter.variable,
+              "antialiased",
+              "grid grid-cols-1 items-start content-start justify-center justify-items-center",
+              "w-full"
             )}
           >
-            {children}
-          </main>
-        </body>
-      </html>
+            <main
+              className={clsx(
+                "grid grid-cols-1 place-content-start place-items-start",
+                "max-w-[1200px] w-full"
+              )}
+            >
+              {children}
+            </main>
+          </body>
+        </html>
+      </ReactQueryProvider>
     </LanguageProvider>
   );
 }

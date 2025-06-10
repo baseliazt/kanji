@@ -17,6 +17,7 @@ export default async function Home({
   const selectedLevel = !query.level
     ? levelData?.data?.find((item) => item.name === "N5")
     : levelData?.data?.find((item) => item.name === query.level);
+
   const { data: kanjiData } = await serverClient.GET("/api/kanji", {
     params: {
       query: {
