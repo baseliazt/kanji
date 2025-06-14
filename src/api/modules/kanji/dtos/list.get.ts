@@ -1,6 +1,9 @@
 import { z } from "zod";
-import { Kanji } from "../schemas/schema";
+import { KanjiSchema } from "../schemas/schema";
 import { KanjiLevelZod } from "../../level/dtos/level_list.get";
+import { KunyomiListSchema } from "../../kunyomi/schemas/schema";
+import { OnyomiListSchema } from "../../onyomi/schemas/schema";
+import { VocabularyListSchema } from "../../vocabulary/schemas/schema";
 
 export const getKanjiListQueryRequest = z.object({
   level: KanjiLevelZod,
@@ -9,4 +12,12 @@ export const getKanjiListQueryRequest = z.object({
 
 export type GetKanjiListQueryRequest = z.infer<typeof getKanjiListQueryRequest>;
 
-export type GetKanjiListResponseDTO = Kanji;
+export const GetKanjiListResponseDTOSchema = KanjiSchema.extend({
+  kunyomi: KunyomiListSchema,
+  onyomi: OnyomiListSchema,
+  vocabulary: VocabularyListSchema,
+});
+
+export type GetKanjiListResponseDTO = z.infer<
+  typeof GetKanjiListResponseDTOSchema
+>;

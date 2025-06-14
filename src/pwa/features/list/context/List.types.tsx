@@ -1,4 +1,5 @@
-import { components, paths } from "@/api/docs/openapi/generated/openapi";
+import { paths } from "@/api/docs/openapi/generated/openapi";
+import { GetKanjiListDataResponse } from "@/pwa/core/types/api";
 
 type ActionMap<M extends { [index: string]: any }> = {
   [Key in keyof M]: M[Key] extends undefined
@@ -28,13 +29,8 @@ export interface ListLevel {
 }
 
 export interface ListKanji {
-  selected: {
-    id: string;
-    vocabulary: {
-      id: string;
-    }[];
-  }[];
-  data: paths["/api/kanji"]["get"]["responses"]["200"]["content"]["application/json"]["data"];
+  selected: GetKanjiListDataResponse;
+  data: GetKanjiListDataResponse;
 }
 
 export enum ListActionEnum {

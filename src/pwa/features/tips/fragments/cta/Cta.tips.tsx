@@ -1,22 +1,20 @@
 "use client";
 import clsx from "clsx";
 import { useContext } from "react";
-import { ListContext } from "../../context";
+import { TipsContext } from "../../context";
 import { Button } from "@/pwa/core/components/button";
 import { useTranslation } from "@/pwa/core/i18n/hooks";
-import { setKanjiSelection } from "@/pwa/core/storage/indexDB/kanji_selection";
 import { useRouter } from "next/navigation";
 import { PWARouterURL } from "@/pwa/core/routers";
 
-export const CTAList = () => {
+export const CTATips = () => {
   const router = useRouter();
-  const { state } = useContext(ListContext);
+  const { state } = useContext(TipsContext);
   const { t } = useTranslation();
-
-  if (!state.kanji.selected?.length) return null;
+  console.log(state.kanji.data, "ini data");
+  if (!state.kanji.data?.length) return null;
 
   const handleClickKanji = () => {
-    setKanjiSelection(state.kanji.selected);
     router.push(PWARouterURL.GetTips());
   };
   return (

@@ -26,9 +26,10 @@ export const ItemsList = () => {
       vocabulary: components["schemas"]["Vocabulary"][];
     }
   ) => {
+    if (!state.kanji.selected) return;
     const isKanjiExist = state.kanji.selected
       .map((kanji) => kanji.id)
-      .includes(data.id);
+      .includes(data?.id);
     dispatch({
       type: ListActionEnum.SetKanjiData,
       payload: {
@@ -41,13 +42,9 @@ export const ItemsList = () => {
                     selectedKanji.vocabulary.length === data.vocabulary.length;
                   return {
                     ...selectedKanji,
-                    vocabulary: isAllVocabularySelected
-                      ? []
-                      : data.vocabulary.map((vocabulary) => {
-                          return {
-                            id: vocabulary.id,
-                          };
-                        }),
+                    kunyomi: isAllVocabularySelected ? [] : data.kunyomi,
+                    onyomi: isAllVocabularySelected ? [] : data.onyomi,
+                    vocabulary: isAllVocabularySelected ? [] : data.vocabulary,
                   };
                 }
                 return {
@@ -58,12 +55,7 @@ export const ItemsList = () => {
           : [
               ...state.kanji.selected,
               {
-                id: data.id,
-                vocabulary: data.vocabulary.map((vocabulary) => {
-                  return {
-                    id: vocabulary.id,
-                  };
-                }),
+                ...data,
               },
             ],
       },
@@ -77,6 +69,7 @@ export const ItemsList = () => {
       vocabulary: components["schemas"]["Vocabulary"];
     }
   ) => {
+    if (!state.kanji.selected) return;
     const isKanjiExist = state.kanji.selected
       .map((kanji) => kanji.id)
       .includes(data.id);
@@ -86,18 +79,17 @@ export const ItemsList = () => {
         ...state.kanji,
         selected: isKanjiExist
           ? state.kanji.selected
-              .map((selectedKanji) => {
+              ?.map((selectedKanji) => {
                 if (selectedKanji.id === data.id) {
                   const isVocabularyExist = selectedKanji.vocabulary
                     .map((vocabulary) => vocabulary.id)
                     .includes(data.vocabulary.id);
-
                   const payload = isVocabularyExist
                     ? selectedKanji.vocabulary.filter(
                         (selectedVocabulary) =>
                           selectedVocabulary.id !== data.vocabulary.id
                       )
-                    : [...selectedKanji.vocabulary, { id: data.vocabulary.id }];
+                    : [...selectedKanji.vocabulary, data.vocabulary];
                   return {
                     ...selectedKanji,
                     vocabulary: payload,
@@ -111,12 +103,8 @@ export const ItemsList = () => {
           : [
               ...state.kanji.selected,
               {
-                id: data.id,
-                vocabulary: [
-                  {
-                    id: data.vocabulary.id,
-                  },
-                ],
+                ...data,
+                vocabulary: [data.vocabulary],
               },
             ],
       },
@@ -151,7 +139,7 @@ export const ItemsList = () => {
                     .join(", "),
                 }),
             selected:
-              state.kanji.selected.find(
+              state.kanji.selected?.find(
                 (selectedKanji) => selectedKanji.id === kanji.id
               )?.vocabulary.length === kanji.vocabulary.length,
             onSelect: () => handleSelectKanji(kanji),
@@ -161,7 +149,7 @@ export const ItemsList = () => {
               return {
                 selected: (
                   state.kanji.selected
-                    .find((selectedKanji) => selectedKanji.id === kanji.id)
+                    ?.find((selectedKanji) => selectedKanji.id === kanji.id)
                     ?.vocabulary.map(
                       (selectedVocabulary) => selectedVocabulary.id
                     ) ?? []
