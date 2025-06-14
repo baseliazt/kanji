@@ -91,7 +91,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/api/kanji/vocabulary/questions": {
+    "/api/kanji/vocabulary/exercises": {
         parameters: {
             query?: never;
             header?: never;

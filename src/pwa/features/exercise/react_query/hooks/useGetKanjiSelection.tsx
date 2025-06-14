@@ -1,33 +1,31 @@
-"use client";
-
+import * as React from "react";
 import { useQuery } from "@tanstack/react-query";
-import { TipsActionEnum, TipsContext } from "../../context";
-import { useContext, useEffect } from "react";
-import { TipsReactQueryKey } from "../keys";
+import { ExercisesReactQueryKey } from "../keys";
+
+import { ExercisesContext, ExercisesActionEnum } from "../../context";
 import {
   getKanjiSelection,
   KanjiSelectionStorageInterface,
 } from "@/pwa/core/storage/indexDB/kanji_selection";
 
 export const useGetKanjiSelection = () => {
-  const { state, dispatch } = useContext(TipsContext);
+  const { state, dispatch } = React.useContext(ExercisesContext);
 
   const query = useQuery<KanjiSelectionStorageInterface>({
-    queryKey: TipsReactQueryKey.GetKanjiSelection(),
+    queryKey: ExercisesReactQueryKey.GetKanjiSelection(),
     queryFn: () => {
       return getKanjiSelection();
     },
   });
 
-  useEffect(() => {
-    if (!!query.data && !query.isFetching) {
+  React.useEffect(() => {
+    if (query.data && !query.isFetching) {
       const data = query.data;
-
       dispatch({
-        type: TipsActionEnum.SetKanjiData,
+        type: ExercisesActionEnum.SetSelectionsData,
         payload: {
-          ...state.kanji,
-          data: data,
+          ...state.selections,
+          items: data,
         },
       });
     }

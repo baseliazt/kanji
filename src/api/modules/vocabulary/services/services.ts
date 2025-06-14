@@ -5,10 +5,9 @@ import { VocabularyCSVSchema } from "../schemas/csv";
 import {
   Vocabulary,
   VocabularyListSchema,
-  VocabularyQuestion,
+  VocabularyExercise,
 } from "../schemas/schema";
-import { GetVocabularyQuestionListQueryRequest } from "../dtos";
-import { decodeId, encodeId } from "@/api/utils/id";
+import { GetVocabularyExercisesQueryRequest } from "../dtos";
 
 export class VocabularyService {
   constructor() {}
@@ -40,7 +39,7 @@ export class VocabularyService {
     vocabularies: string[],
     data: Vocabulary[],
     count: number
-  ) => VocabularyQuestion[] = (
+  ) => VocabularyExercise[] = (
     vocabularies: string[],
     data: Vocabulary[],
     count = 5
@@ -76,9 +75,7 @@ export class VocabularyService {
     return questions;
   };
 
-  async getVocabularyQuestionList(
-    query: GetVocabularyQuestionListQueryRequest
-  ) {
+  async getVocabularyExercises(query: GetVocabularyExercisesQueryRequest) {
     const vocabulariesQuery = query.vocabularies;
     const vocabularies = await this.getList();
     const vocabulariesFilter = vocabulariesQuery.split(",");

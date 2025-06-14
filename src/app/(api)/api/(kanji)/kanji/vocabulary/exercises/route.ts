@@ -10,7 +10,7 @@ export async function GET(request: NextRequest) {
 
   let apiRequest: { query: { vocabularies: string } } | undefined;
   try {
-    apiRequest = await controller.getVocabularyQuestion(request);
+    apiRequest = await controller.getVocabularyExercises(request);
   } catch (err) {
     return NextResponse.json(
       createApiResponse(
@@ -28,7 +28,7 @@ export async function GET(request: NextRequest) {
   }
 
   try {
-    const data = await service.getVocabularyQuestionList(apiRequest.query);
+    const data = await service.getVocabularyExercises(apiRequest.query);
 
     return NextResponse.json(
       createApiResponse(true, data, "Data fetched successfully")

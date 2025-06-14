@@ -2,16 +2,16 @@ import { RouteConfig } from "@asteasolutions/zod-to-openapi";
 import { ApiResponseSchema } from "@/api/utils/dto";
 import { z } from "zod";
 import {
-  getVocabularyQuestionListQueryRequest,
-  GetVocabularyQuestionListResponseDTOSchema,
-} from "../dtos/question_list.get";
+  getVocabularyExercisesQueryRequest,
+  GetVocabularyExercisesResponseDTOSchema,
+} from "../dtos/exercises.get";
 
-export const GetVocabularyQuestionListRegistry: RouteConfig = {
+export const GetVocabularyExercisesRegistry: RouteConfig = {
   method: "get",
-  path: "/api/kanji/vocabulary/questions",
+  path: "/api/kanji/vocabulary/exercises",
   tags: ["Kanji"],
   request: {
-    query: getVocabularyQuestionListQueryRequest,
+    query: getVocabularyExercisesQueryRequest,
   },
   responses: {
     200: {
@@ -19,7 +19,7 @@ export const GetVocabularyQuestionListRegistry: RouteConfig = {
       content: {
         "application/json": {
           schema: ApiResponseSchema(
-            z.array(GetVocabularyQuestionListResponseDTOSchema)
+            z.array(GetVocabularyExercisesResponseDTOSchema)
           ),
         },
       },

@@ -1,1 +1,1 @@
-export * from "./question_list.get";
+export * from "./exercises.get";
