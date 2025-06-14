@@ -5,10 +5,15 @@ import {
 } from "@asteasolutions/zod-to-openapi";
 import { GetKanjiListRegistry } from "@/api/modules/kanji/docs/list.get";
 import { GetLevelListRegistry } from "@/api/modules/level/docs/list.get";
+import { GetVocabularyQuestionListRegistry } from "@/api/modules/vocabulary/docs/list.get";
 
 const registry = new OpenAPIRegistry();
 
-const registryItems = [GetKanjiListRegistry, GetLevelListRegistry];
+const registryItems = [
+  GetKanjiListRegistry,
+  GetLevelListRegistry,
+  GetVocabularyQuestionListRegistry,
+];
 
 for (const registryItem of registryItems) {
   registry.registerPath(registryItem);

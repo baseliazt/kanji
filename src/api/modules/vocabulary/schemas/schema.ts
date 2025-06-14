@@ -39,3 +39,10 @@ export const VocabularyListSchema = z.array(VocabularySchema);
 
 export type Vocabulary = z.infer<typeof VocabularySchema>;
 export type VocabularyList = z.infer<typeof VocabularyListSchema>;
+
+export type VocabularyQuestion = {
+  id: string;
+  prompt: Vocabulary;
+  options: Vocabulary[];
+  answer: Vocabulary;
+};

@@ -303,6 +303,78 @@
           }
         }
       }
+    },
+    "/api/kanji/vocabulary/questions": {
+      "get": {
+        "tags": [
+          "Kanji"
+        ],
+        "parameters": [
+          {
+            "schema": {
+              "type": "string"
+            },
+            "required": true,
+            "name": "vocabularies",
+            "in": "query"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Question list retrieved",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "success": {
+                      "type": "boolean"
+                    },
+                    "message": {
+                      "type": "string"
+                    },
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "id": {
+                            "type": "string"
+                          },
+                          "prompt": {
+                            "$ref": "#/components/schemas/Vocabulary"
+                          },
+                          "options": {
+                            "type": "array",
+                            "items": {
+                              "$ref": "#/components/schemas/Vocabulary"
+                            }
+                          },
+                          "answer": {
+                            "$ref": "#/components/schemas/Vocabulary"
+                          }
+                        },
+                        "required": [
+                          "id",
+                          "prompt",
+                          "options",
+                          "answer"
+                        ]
+                      }
+                    },
+                    "error": {
+                      "nullable": true
+                    }
+                  },
+                  "required": [
+                    "success"
+                  ]
+                }
+              }
+            }
+          }
+        }
+      }
     }
   }
 }
