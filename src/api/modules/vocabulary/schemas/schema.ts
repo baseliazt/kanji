@@ -17,6 +17,9 @@ export const VocabularySchema = z
     ["word"]: z
       .string()
       .openapi({ example: "イチ", description: "Vocabulary in katakana" }),
+    ["kana"]: z
+      .string()
+      .openapi({ example: "ichi", description: "Kana Japanese" }),
     ["kanji"]: z
       .string()
       .openapi({ example: "ichi", description: "Romanized Japanese" }),

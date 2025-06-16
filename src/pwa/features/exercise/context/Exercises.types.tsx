@@ -16,6 +16,7 @@ type ActionMap<M extends { [index: string]: any }> = {
 export interface ExercisesInitialStateType {
   selections: ExercisesSelections;
   items: ExercisesItems;
+  correct_banner: ExercisesCorrectBanner;
 }
 
 // State Collection Types consist of:
@@ -26,6 +27,10 @@ export interface ExercisesSelections {
 export interface ExercisesItems {
   selected: null | number;
   data: QuestionWithCorrect[];
+}
+
+export interface ExercisesCorrectBanner {
+  is_open: boolean;
 }
 
 export type QuestionWithCorrect = {
@@ -43,12 +48,16 @@ export enum ExercisesActionEnum {
   SetSelectionsData = "SetSelectionsData",
   // Items
   SetItemsData = "SetItemsData",
+
+  // CorrectBanner
+  SetCorrectBannerData = "SetCorrectBannerData",
 }
 
 // Action Collection Types
 export type ExercisesActions =
   | ExercisesSelectionsActions
-  | ExercisesItemsActions;
+  | ExercisesItemsActions
+  | ExercisesCorrectBannerActions;
 
 // Action Collection Types consist of:
 // Selections
@@ -66,3 +75,11 @@ type ExercisesItemsPayload = {
 
 export type ExercisesItemsActions =
   ActionMap<ExercisesItemsPayload>[keyof ActionMap<ExercisesItemsPayload>];
+
+// CorrectBanner
+type ExercisesCorrectBannerPayload = {
+  [ExercisesActionEnum.SetCorrectBannerData]: ExercisesCorrectBanner;
+};
+
+export type ExercisesCorrectBannerActions =
+  ActionMap<ExercisesCorrectBannerPayload>[keyof ActionMap<ExercisesCorrectBannerPayload>];

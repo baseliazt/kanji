@@ -1,6 +1,7 @@
 import {
   ExercisesActionEnum,
   ExercisesActions,
+  ExercisesCorrectBanner,
   ExercisesItems,
   ExercisesSelections,
 } from "./Exercises.types";
@@ -26,6 +27,20 @@ export const ExercisesItemsReducers = (
 ) => {
   switch (action.type) {
     case ExercisesActionEnum.SetItemsData:
+      return action.payload;
+
+    default:
+      return state;
+  }
+};
+
+// CorrectBanner
+export const ExercisesCorrectBannerReducers = (
+  state: ExercisesCorrectBanner,
+  action: ExercisesActions
+) => {
+  switch (action.type) {
+    case ExercisesActionEnum.SetCorrectBannerData:
       return action.payload;
 
     default:

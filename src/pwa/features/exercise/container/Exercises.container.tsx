@@ -1,34 +1,51 @@
 "use client";
 import * as React from "react";
 import clsx from "clsx";
-import { ProgressExercises } from "../fragments/progress";
-import { QuestionVocabulary } from "../fragments/question";
-import { AnswerVocabulary } from "../fragments/answer";
+import { QuestionExercises } from "../fragments/question";
+import { AnswerExercises } from "../fragments/answer";
 import { ExercisesContext } from "../context";
 import { FinishVocabulary } from "../fragments/finish";
-import { SettingsVocabulary } from "../fragments/settings";
+import {
+  useGetKanjiSelection,
+  useGetVocabularyExercises,
+} from "../react_query/hooks";
+import { NavbarExercises } from "../fragments/navbar";
+import { ToolkitExercises } from "../fragments/toolkits";
+import { CorrectBannerExercises } from "../fragments/success_cta";
 
 export const ExercisesContainer = () => {
   const { state } = React.useContext(ExercisesContext);
+  useGetKanjiSelection();
+  useGetVocabularyExercises();
   return (
-    <React.Suspense>
+    <>
+      <NavbarExercises />
+
       <div
         className={clsx(
           "grid grid-cols-1 place-content-start place-items-start gap-[1rem]",
-          "w-full"
+          "w-full",
+          "px-[1.5rem] pt-[4rem]"
         )}
       >
         {state.items.selected !== state.items.data.length ? (
           <>
-            <ProgressExercises />
-            <QuestionVocabulary />
-            <AnswerVocabulary />
+            <h1
+              className={clsx(
+                "text-primary text-[1.25rem] font-bold text-center"
+              )}
+            >
+              {"Please select the correct answer"}
+            </h1>
+            <ToolkitExercises />
+            <QuestionExercises />
+            <AnswerExercises />
           </>
         ) : (
           <FinishVocabulary />
         )}
-        <SettingsVocabulary />
       </div>
-    </React.Suspense>
+      <CorrectBannerExercises />
+    </>
   );
 };

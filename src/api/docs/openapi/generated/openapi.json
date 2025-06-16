@@ -80,6 +80,11 @@
             "description": "Vocabulary in katakana",
             "example": "イチ"
           },
+          "kana": {
+            "type": "string",
+            "description": "Kana Japanese",
+            "example": "ichi"
+          },
           "kanji": {
             "type": "string",
             "description": "Romanized Japanese",
@@ -110,6 +115,7 @@
           "id",
           "kanji_id",
           "word",
+          "kana",
           "kanji",
           "romaji",
           "image_url",

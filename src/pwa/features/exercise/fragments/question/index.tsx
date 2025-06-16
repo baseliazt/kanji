@@ -1,1 +1,1 @@
-export * from "./Question.vocabulary";
+export * from "./Question.exercises";

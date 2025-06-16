@@ -185,6 +185,11 @@ export interface components {
              */
             word: string;
             /**
+             * @description Kana Japanese
+             * @example ichi
+             */
+            kana: string;
+            /**
              * @description Romanized Japanese
              * @example ichi
              */

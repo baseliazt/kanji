@@ -5,7 +5,7 @@ import { ExercisesReactQueryKey } from "../keys";
 import { ExercisesContext, ExercisesActionEnum } from "../../context";
 import serverClient from "@/pwa/core/lib/api/server";
 
-export const useGetQuestionList = () => {
+export const useGetVocabularyExercises = () => {
   const { state, dispatch } = React.useContext(ExercisesContext);
 
   const query = useQuery({

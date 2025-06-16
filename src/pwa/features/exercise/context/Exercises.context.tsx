@@ -2,6 +2,7 @@
 import React, { createContext, useReducer, Dispatch } from "react";
 import { ExercisesActions, ExercisesInitialStateType } from "./Exercises.types";
 import {
+  ExercisesCorrectBannerReducers,
   ExercisesItemsReducers,
   ExercisesSelectionsReducers,
 } from "./Exercises.reducers";
@@ -14,6 +15,9 @@ const initialState: ExercisesInitialStateType = {
     selected: null,
     data: [],
   },
+  correct_banner: {
+    is_open: false,
+  },
 };
 
 const ExercisesContext = createContext<{
@@ -25,11 +29,12 @@ const ExercisesContext = createContext<{
 });
 
 const mainReducer = (
-  { selections, items }: ExercisesInitialStateType,
+  { selections, items, correct_banner }: ExercisesInitialStateType,
   action: ExercisesActions
 ) => ({
   selections: ExercisesSelectionsReducers(selections, action),
   items: ExercisesItemsReducers(items, action),
+  correct_banner: ExercisesCorrectBannerReducers(correct_banner, action),
 });
 
 const ExercisesProvider = (props: { children: React.ReactNode }) => {

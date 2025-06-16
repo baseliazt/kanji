@@ -11,11 +11,11 @@ export const CTATips = () => {
   const router = useRouter();
   const { state } = useContext(TipsContext);
   const { t } = useTranslation();
-  console.log(state.kanji.data, "ini data");
+
   if (!state.kanji.data?.length) return null;
 
   const handleClickKanji = () => {
-    router.push(PWARouterURL.GetTips());
+    router.push(PWARouterURL.GetExercises());
   };
   return (
     <div
