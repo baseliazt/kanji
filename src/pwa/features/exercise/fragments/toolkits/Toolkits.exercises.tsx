@@ -46,7 +46,7 @@ export const ToolkitExercises = () => {
 
   const handleClickVoice = async () => {
     if (state.items.selected === null) return;
-    const text = state.items.data[state.items.selected].prompt.kanji ?? "";
+    const text = state.items.data[state.items.selected].prompt.word ?? "";
 
     const res = await fetch(`/api/tts?text=${text}&lang=ja`);
     if (!res.ok) {
