@@ -33,6 +33,7 @@ export const KanjiAccordionHeader = ({
         "w-full",
         "cursor-pointer"
       )}
+      onClick={onClick}
     >
       <div
         className={clsx(
@@ -42,7 +43,10 @@ export const KanjiAccordionHeader = ({
       >
         <Checkbox
           checked={!!selected}
-          onChange={onSelect}
+          onClick={(e) => {
+            e.stopPropagation();
+            onSelect?.();
+          }}
         />
         <span className={clsx("text-white text-[1.25rem] font-semibold")}>
           {kanji}
@@ -78,12 +82,12 @@ export const KanjiAccordionHeader = ({
             {progress}
           </span>
         )}
-        <button onClick={onClick}>
+        <div>
           <SVGIcon
             name={isOpen ? "ChevronUp" : "ChevronDown"}
             className={clsx("w-[1.5rem] h-[1.5rem]", "text-neutral-400")}
           />
-        </button>
+        </div>
       </div>
     </div>
   );
