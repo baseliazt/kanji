@@ -40,8 +40,9 @@ export const KanjiItem = ({
         "rounded-[0.75rem]",
         "px-[0.5rem] py-[0.5rem]"
       )}
+      onClick={onSelect}
     >
-      <Checkbox shape="circle" checked={selected} onChange={onSelect} />
+      <Checkbox shape="circle" checked={selected} />
       <div
         className={clsx(
           "grid grid-cols-1 place-content-start place-items-start gap-[0.5rem]",

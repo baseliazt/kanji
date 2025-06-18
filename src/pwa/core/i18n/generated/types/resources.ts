@@ -12,4 +12,18 @@ export interface Resources {
     item_content_attempt: "{{attempt}} times"
     cta_practice: "Practice"
   }
+  tips: {
+    cta_animate: "Animate"
+    kunyomi: "Kunyomi"
+    onyomi: "Onyomi"
+    stroke: "Stroke"
+    mnemonic: "Mnemonic"
+    pictograph: "Pictograph"
+    cta_skip: "Skip"
+  }
+  exercises: {
+    multiple_choice_question: "Please select the correct answer."
+    fill_blank_question: "Please fill the correct answer."
+    cta_next: "Next"
+  }
 };

@@ -5,3 +5,13 @@ kanji_selection,item_header_on,On: {{onyomi}}
 kanji_selection,item_content_avg,avg: {{avg}}
 kanji_selection,item_content_attempt,{{attempt}} times
 kanji_selection,cta_practice,Practice
+tips,cta_animate,Animate
+tips,kunyomi,Kunyomi
+tips,onyomi,Onyomi
+tips,stroke,Stroke
+tips,mnemonic,Mnemonic
+tips,pictograph,Pictograph
+tips,cta_skip,Skip
+exercises,multiple_choice_question,Please select the correct answer.
+exercises,fill_blank_question,Please fill the correct answer.
+exercises,cta_next,Next

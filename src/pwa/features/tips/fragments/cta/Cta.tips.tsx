@@ -14,7 +14,7 @@ export const CTATips = () => {
 
   if (!state.kanji.data?.length) return null;
 
-  const handleClickKanji = () => {
+  const handleClickSkip = () => {
     router.push(PWARouterURL.GetExercises());
   };
   return (
@@ -25,9 +25,7 @@ export const CTATips = () => {
         "px-[1.5rem] py-[1.5rem]"
       )}
     >
-      <Button onClick={handleClickKanji}>
-        {t("kanji_selection:cta_practice")}
-      </Button>
+      <Button onClick={handleClickSkip}>{t("tips:cta_skip")}</Button>
     </div>
   );
 };
