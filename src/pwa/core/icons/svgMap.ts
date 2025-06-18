@@ -49,6 +49,9 @@ import {
   Sun,
   Flame,
   TrendingUp,
+  Speech,
+  Globe,
+  CaseUpper,
 } from "lucide-react";
 
 export const svgMap = {
@@ -102,6 +105,9 @@ export const svgMap = {
   Sun,
   Flame,
   TrendingUp,
+  Speech,
+  Globe,
+  CaseUpper,
 };
 
 export type SVGName = keyof typeof svgMap;

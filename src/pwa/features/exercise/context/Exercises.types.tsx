@@ -17,6 +17,7 @@ export interface ExercisesInitialStateType {
   selections: ExercisesSelections;
   items: ExercisesItems;
   correct_banner: ExercisesCorrectBanner;
+  hint: ExercisesHint;
 }
 
 // State Collection Types consist of:
@@ -31,6 +32,10 @@ export interface ExercisesItems {
 
 export interface ExercisesCorrectBanner {
   is_open: boolean;
+}
+
+export interface ExercisesHint {
+  selected: { id: string; name: string }[];
 }
 
 export type QuestionWithCorrect = {
@@ -48,16 +53,18 @@ export enum ExercisesActionEnum {
   SetSelectionsData = "SetSelectionsData",
   // Items
   SetItemsData = "SetItemsData",
-
   // CorrectBanner
   SetCorrectBannerData = "SetCorrectBannerData",
+  // Hint
+  SetHintData = "SetHintData",
 }
 
 // Action Collection Types
 export type ExercisesActions =
   | ExercisesSelectionsActions
   | ExercisesItemsActions
-  | ExercisesCorrectBannerActions;
+  | ExercisesCorrectBannerActions
+  | ExercisesHintActions;
 
 // Action Collection Types consist of:
 // Selections
@@ -83,3 +90,11 @@ type ExercisesCorrectBannerPayload = {
 
 export type ExercisesCorrectBannerActions =
   ActionMap<ExercisesCorrectBannerPayload>[keyof ActionMap<ExercisesCorrectBannerPayload>];
+
+// Hint
+type ExercisesHintPayload = {
+  [ExercisesActionEnum.SetHintData]: ExercisesHint;
+};
+
+export type ExercisesHintActions =
+  ActionMap<ExercisesHintPayload>[keyof ActionMap<ExercisesHintPayload>];

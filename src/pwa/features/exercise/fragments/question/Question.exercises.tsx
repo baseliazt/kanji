@@ -11,6 +11,9 @@ export const QuestionExercises = () => {
     return null;
   }
 
+  const selectedHintIds = state.hint.selected.map(
+    (selectedHint) => selectedHint.id
+  );
   return (
     <div
       className={clsx(
@@ -30,21 +33,29 @@ export const QuestionExercises = () => {
             "w-full"
           )}
         >
-          <h1
+          <TextQuestion
+            text={state.items.data[state.items.selected].prompt.romaji}
             className={clsx(
-              "text-primary text-[1.25rem] font-bold text-center"
+              "!text-[1.5rem] !text-neutral-200 !font-bold",
+              selectedHintIds.includes("romaji")
+                ? "opacity-100"
+                : "opacity-0"
             )}
-          >
-            {state.items.data[state.items.selected].prompt.romaji}
-          </h1>
+          />
           <TextQuestion
             text={state.items.data[state.items.selected].prompt.kanji}
             className={clsx("!text-[4rem] !text-neutral-200 !font-bold")}
           />
         </div>
+
         <TextQuestion
           text={`“${state.items.data[state.items.selected].prompt["id-ID"]}”`}
-          className={clsx("!text-[1rem] !text-neutral-200 font-medium !italic")}
+          className={clsx(
+            "!text-[1rem] !text-neutral-200 font-medium !italic",
+            selectedHintIds.includes("translation")
+              ? "opacity-100"
+              : "opacity-0"
+          )}
         />
       </div>
     </div>

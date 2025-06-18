@@ -2,6 +2,7 @@ import {
   ExercisesActionEnum,
   ExercisesActions,
   ExercisesCorrectBanner,
+  ExercisesHint,
   ExercisesItems,
   ExercisesSelections,
 } from "./Exercises.types";
@@ -41,6 +42,20 @@ export const ExercisesCorrectBannerReducers = (
 ) => {
   switch (action.type) {
     case ExercisesActionEnum.SetCorrectBannerData:
+      return action.payload;
+
+    default:
+      return state;
+  }
+};
+
+// Hint
+export const ExercisesHintReducers = (
+  state: ExercisesHint,
+  action: ExercisesActions
+) => {
+  switch (action.type) {
+    case ExercisesActionEnum.SetHintData:
       return action.payload;
 
     default:
