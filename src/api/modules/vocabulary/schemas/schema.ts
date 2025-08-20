@@ -12,8 +12,7 @@ export const VocabularySchema = z
       .openapi({ type: "string", example: "Vjo1a910QP" }),
     kanji_id: z
       .string()
-      .transform((val) => encodeId(Number(val)))
-      .openapi({ type: "string", example: "Vjo1a910QP" }),
+      .openapi({ type: "string", example: "1", description: "Reference to Kanji ID" }),
     ["word"]: z
       .string()
       .openapi({ example: "イチ", description: "Vocabulary in katakana" }),

@@ -110,7 +110,7 @@ export const ItemsList = () => {
       },
     });
   };
-
+  console.log(state.kanji.data, "ini kanji data");
   return (
     <div
       className={clsx(
