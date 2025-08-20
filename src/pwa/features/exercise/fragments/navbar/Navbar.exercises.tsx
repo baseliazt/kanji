@@ -12,7 +12,7 @@ export const NavbarExercises = () => {
   return (
     <nav
       className={clsx(
-        "flex items-center justify-between",
+        "flex items-center justify-between gap-[1rem]",
         "w-full h-[4rem]",
         "fixed top-0",
         "max-w-[1200px]",

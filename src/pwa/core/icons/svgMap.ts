@@ -52,6 +52,8 @@ import {
   Speech,
   Globe,
   CaseUpper,
+  Play,
+  Loader2,
 } from "lucide-react";
 
 export const svgMap = {
@@ -108,6 +110,8 @@ export const svgMap = {
   Speech,
   Globe,
   CaseUpper,
+  Play,
+  Loader2,
 };
 
 export type SVGName = keyof typeof svgMap;

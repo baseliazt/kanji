@@ -1,1 +1,1 @@
-export * from "./Tips.container";
+export * from "./TipsImproved.container";

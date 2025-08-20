@@ -6,6 +6,8 @@ import { KunyomiService } from "../../kunyomi/services";
 import { OnyomiService } from "../../onyomi/services";
 import { KanjiListSchema } from "../schemas/schema";
 import { VocabularyService } from "../../vocabulary/services";
+import { MnemonicService } from "../../mnemonic/services";
+import { VisualMnemonicService } from "../../visual_mnemonic/services";
 import { GetKanjiListQueryRequest } from "../dtos/list.get";
 
 export class KanjiService {
@@ -43,6 +45,12 @@ export class KanjiService {
     const vocabularyService = new VocabularyService();
     const vocabularyList = await vocabularyService.getList();
 
+    const mnemonicService = new MnemonicService();
+    const mnemonicList = await mnemonicService.getList();
+
+    const visualMnemonicService = new VisualMnemonicService();
+    const visualMnemonicList = await visualMnemonicService.getList();
+
     if (!!idQuery) {
       kanjiList = kanjiList.filter((kanji) =>
         idQuery
@@ -57,12 +65,21 @@ export class KanjiService {
     }
 
     const data = kanjiList.map((kanji) => {
+      // Use original id (before encoding) for matching with related data
+      const originalId = (parsed.data.find(k => k.kanji === kanji.kanji)?.id || kanji.id);
+      
       return {
         ...kanji,
-        kunyomi: kunyomiList.filter((kunyomi) => kunyomi.kanji_id === kanji.id),
-        onyomi: onyomiList.filter((onyomi) => onyomi.kanji_id === kanji.id),
+        kunyomi: kunyomiList.filter((kunyomi) => kunyomi.kanji_id === originalId),
+        onyomi: onyomiList.filter((onyomi) => onyomi.kanji_id === originalId),
         vocabulary: vocabularyList.filter(
-          (vocabulary) => vocabulary.kanji_id === kanji.id
+          (vocabulary) => vocabulary.kanji_id === originalId
+        ),
+        mnemonic: mnemonicList.filter(
+          (mnemonic) => mnemonic.kanji_id === originalId
+        ),
+        visualMnemonic: visualMnemonicList.filter(
+          (visualMnemonic) => visualMnemonic.kanji_id === originalId
         ),
       };
     });
