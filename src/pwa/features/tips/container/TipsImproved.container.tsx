@@ -98,22 +98,33 @@ export const TipsContainer = () => {
       {/* Main content area - Fixed positioning */}
       <div className="flex-1 px-4 py-6 pb-32">
         <div className="w-full max-w-none mx-0">
-          <div className="bg-purple-600 text-white p-4 mb-4 rounded-lg">
-            <div>
-              <strong>DEBUG:</strong> Index {currentIndex}/
-              {state.kanji.data?.length || 0}
+      {/* Navigation controls - Desktop only with elegant design */}
+      <div className="hidden md:block w-full max-w-none mx-0 mb-6">
+        <div className="bg-gradient-to-r from-slate-800/80 to-slate-700/80 backdrop-blur-sm rounded-2xl p-4 border border-slate-600/50 shadow-lg">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center gap-4">
+              <div className="text-slate-300 text-sm font-medium">
+                {currentIndex + 1} of {state.kanji.data?.length || 0}
+              </div>
+              <div className="text-white text-lg font-bold">
+                {state.kanji.data?.[currentIndex]?.kanji || "NONE"}
+              </div>
             </div>
-            <div>
-              <strong>Current Kanji:</strong>{" "}
-              {state.kanji.data?.[currentIndex]?.kanji || "NONE"}
-            </div>
-            <div className="flex gap-2 mt-2">
+            
+            <div className="flex items-center gap-3">
               <button
                 onClick={() => setCurrentIndex(Math.max(0, currentIndex - 1))}
                 disabled={currentIndex === 0}
-                className="px-3 py-1 bg-blue-600 disabled:bg-gray-600 rounded text-sm"
+                className={clsx(
+                  "px-4 py-2 rounded-lg font-medium text-sm transition-all duration-200",
+                  "flex items-center gap-2",
+                  "disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100",
+                  currentIndex === 0
+                    ? "bg-slate-700 text-slate-400"
+                    : "bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white shadow-lg hover:scale-105"
+                )}
               >
-                ← Prev
+                ← Previous
               </button>
               <button
                 onClick={() =>
@@ -125,12 +136,21 @@ export const TipsContainer = () => {
                   )
                 }
                 disabled={currentIndex >= (state.kanji.data?.length || 1) - 1}
-                className="px-3 py-1 bg-blue-600 disabled:bg-gray-600 rounded text-sm"
+                className={clsx(
+                  "px-4 py-2 rounded-lg font-medium text-sm transition-all duration-200",
+                  "flex items-center gap-2",
+                  "disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100",
+                  currentIndex >= (state.kanji.data?.length || 1) - 1
+                    ? "bg-slate-700 text-slate-400"
+                    : "bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white shadow-lg hover:scale-105"
+                )}
               >
                 Next →
               </button>
             </div>
           </div>
+        </div>
+      </div>
 
           {state.kanji.data?.[currentIndex] ? (
             <KanjiCard kanjiData={state.kanji.data[currentIndex]} />
