@@ -20,16 +20,16 @@ export const NavigationIndicator = ({
         <div
           key={index}
           className={clsx(
-            "h-2 rounded-full transition-all duration-300",
+            "h-2 rounded-full transition-all duration-300 shadow-sm",
             index === currentIndex
-              ? "w-8 bg-blue-400"
-              : "w-2 bg-slate-600 hover:bg-slate-500"
+              ? "w-8 bg-gradient-to-r from-green-400 to-emerald-400 shadow-lg shadow-green-400/50"
+              : "w-2 bg-gray-600 hover:bg-gray-500 hover:shadow-md"
           )}
         />
       ))}
       
       {/* Progress text */}
-      <span className={clsx("ml-3 text-slate-400 text-sm font-medium")}>
+      <span className={clsx("ml-3 text-green-300 text-sm font-medium drop-shadow-sm")}>
         {currentIndex + 1} / {totalItems}
       </span>
     </div>

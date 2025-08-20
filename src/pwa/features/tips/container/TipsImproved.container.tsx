@@ -21,19 +21,21 @@ export const TipsContainer = () => {
       <div
         className={clsx(
           "min-h-screen flex items-center justify-center",
-          "bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900",
+          "bg-gradient-to-br from-[#0F0F0F] via-[#1A1A1A] to-[#0F0F0F]",
           "px-6"
         )}
       >
         <div className={clsx("text-center space-y-6 max-w-md")}>
           <div className={clsx("space-y-2")}>
-            <div className={clsx("text-slate-300 text-2xl font-bold")}>
+            <div
+              className={clsx("text-white text-2xl font-bold drop-shadow-lg")}
+            >
               📚 No Kanji Selected
             </div>
-            <div className={clsx("text-slate-400 text-lg")}>
+            <div className={clsx("text-green-300 text-lg")}>
               Ready to practice?
             </div>
-            <div className={clsx("text-slate-500 text-sm leading-relaxed")}>
+            <div className={clsx("text-gray-400 text-sm leading-relaxed")}>
               Select some kanji from the list first, then come back here to
               review them before starting your practice session.
             </div>
@@ -44,11 +46,11 @@ export const TipsContainer = () => {
             className={clsx(
               "w-full",
               "px-6 py-3",
-              "bg-gradient-to-r from-blue-600 to-blue-700",
-              "hover:from-blue-700 hover:to-blue-800",
+              "bg-gradient-to-r from-green-600 to-emerald-600",
+              "hover:from-green-700 hover:to-emerald-700",
               "text-white font-medium",
-              "rounded-xl",
-              "transition-all duration-200"
+              "rounded-xl border-0 shadow-xl shadow-green-500/40",
+              "transition-all duration-200 hover:scale-105 hover:shadow-green-500/60"
             )}
           >
             Choose Kanji to Practice
@@ -90,7 +92,6 @@ export const TipsContainer = () => {
     <div
       className={clsx(
         "min-h-screen relative",
-        "bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900",
         "flex flex-col w-full",
         "mb-[5rem]"
       )}
@@ -98,59 +99,63 @@ export const TipsContainer = () => {
       {/* Main content area - Fixed positioning */}
       <div className="flex-1 px-4 py-6 pb-32">
         <div className="w-full max-w-none mx-0">
-      {/* Navigation controls - Desktop only with elegant design */}
-      <div className="hidden md:block w-full max-w-none mx-0 mb-6">
-        <div className="bg-gradient-to-r from-slate-800/80 to-slate-700/80 backdrop-blur-sm rounded-2xl p-4 border border-slate-600/50 shadow-lg">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
-              <div className="text-slate-300 text-sm font-medium">
-                {currentIndex + 1} of {state.kanji.data?.length || 0}
+          {/* Navigation controls - Desktop only with elegant design */}
+          <div className="hidden md:block w-full max-w-none mx-0 mb-6">
+            <div className="bg-gradient-to-r from-[#2A2A2A]/90 to-[#1F1F1F]/90 backdrop-blur-sm rounded-2xl p-4 shadow-2xl shadow-black/60 border-0">
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-4">
+                  <div className="text-gray-300 text-sm font-medium">
+                    {currentIndex + 1} of {state.kanji.data?.length || 0}
+                  </div>
+                  <div className="text-white text-lg font-bold drop-shadow-lg">
+                    {state.kanji.data?.[currentIndex]?.kanji || "NONE"}
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <button
+                    onClick={() =>
+                      setCurrentIndex(Math.max(0, currentIndex - 1))
+                    }
+                    disabled={currentIndex === 0}
+                    className={clsx(
+                      "px-4 py-2 rounded-lg font-medium text-sm transition-all duration-200",
+                      "flex items-center gap-2 border-0",
+                      "disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100",
+                      currentIndex === 0
+                        ? "bg-gradient-to-r from-[#333333] to-[#222222] text-gray-400 shadow-inner shadow-black/60"
+                        : "bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white shadow-xl shadow-green-500/40 hover:scale-105 hover:shadow-green-500/60"
+                    )}
+                  >
+                    ← Previous
+                  </button>
+                  <button
+                    onClick={() =>
+                      setCurrentIndex(
+                        Math.min(
+                          (state.kanji.data?.length || 1) - 1,
+                          currentIndex + 1
+                        )
+                      )
+                    }
+                    disabled={
+                      currentIndex >= (state.kanji.data?.length || 1) - 1
+                    }
+                    className={clsx(
+                      "px-4 py-2 rounded-lg font-medium text-sm transition-all duration-200",
+                      "flex items-center gap-2 border-0",
+                      "disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100",
+                      currentIndex >= (state.kanji.data?.length || 1) - 1
+                        ? "bg-gradient-to-r from-[#333333] to-[#222222] text-gray-400 shadow-inner shadow-black/60"
+                        : "bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white shadow-xl shadow-green-500/40 hover:scale-105 hover:shadow-green-500/60"
+                    )}
+                  >
+                    Next →
+                  </button>
+                </div>
               </div>
-              <div className="text-white text-lg font-bold">
-                {state.kanji.data?.[currentIndex]?.kanji || "NONE"}
-              </div>
-            </div>
-            
-            <div className="flex items-center gap-3">
-              <button
-                onClick={() => setCurrentIndex(Math.max(0, currentIndex - 1))}
-                disabled={currentIndex === 0}
-                className={clsx(
-                  "px-4 py-2 rounded-lg font-medium text-sm transition-all duration-200",
-                  "flex items-center gap-2",
-                  "disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100",
-                  currentIndex === 0
-                    ? "bg-slate-700 text-slate-400"
-                    : "bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white shadow-lg hover:scale-105"
-                )}
-              >
-                ← Previous
-              </button>
-              <button
-                onClick={() =>
-                  setCurrentIndex(
-                    Math.min(
-                      (state.kanji.data?.length || 1) - 1,
-                      currentIndex + 1
-                    )
-                  )
-                }
-                disabled={currentIndex >= (state.kanji.data?.length || 1) - 1}
-                className={clsx(
-                  "px-4 py-2 rounded-lg font-medium text-sm transition-all duration-200",
-                  "flex items-center gap-2",
-                  "disabled:opacity-40 disabled:cursor-not-allowed disabled:hover:scale-100",
-                  currentIndex >= (state.kanji.data?.length || 1) - 1
-                    ? "bg-slate-700 text-slate-400"
-                    : "bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white shadow-lg hover:scale-105"
-                )}
-              >
-                Next →
-              </button>
             </div>
           </div>
-        </div>
-      </div>
 
           {state.kanji.data?.[currentIndex] ? (
             <KanjiCard kanjiData={state.kanji.data[currentIndex]} />
