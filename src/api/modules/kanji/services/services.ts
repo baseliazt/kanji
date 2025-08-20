@@ -66,24 +66,16 @@ export class KanjiService {
 
     const data = kanjiList.map((kanji) => {
       // Find the original CSV row that matches this kanji character
-      const csvRow = parsed.data.find(k => k.kanji === kanji.kanji);
+      const csvRow = parsed.data.find((k) => k.kanji === kanji.kanji);
       const originalId = csvRow ? csvRow.id : null;
-      
-      console.log(`=== Processing Kanji: ${kanji.kanji} ===`);
-      console.log(`CSV Row found:`, csvRow);
-      console.log(`Original ID: ${originalId}, Type: ${typeof originalId}`);
-      
+
       // Convert to string for comparison since CSV data is strings
       const idToMatch = String(originalId);
-      console.log(`ID to match: "${idToMatch}"`);
-      
+
       const filteredVocabulary = vocabularyList.filter((vocabulary) => {
-        console.log(`Vocabulary entry - kanji_id: "${vocabulary.kanji_id}", matches: ${vocabulary.kanji_id === idToMatch}`);
         return vocabulary.kanji_id === idToMatch;
       });
-      
-      console.log(`Found ${filteredVocabulary.length} vocabulary entries for kanji ${kanji.kanji}`);
-      
+
       return {
         ...kanji,
         kunyomi: kunyomiList.filter((kunyomi) => {
