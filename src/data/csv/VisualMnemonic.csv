@@ -3,3 +3,50 @@ id,kanji_id,id-ID,en-US
 2,1,Bagian bawah seperti anak (儿),儿 = child
 3,2,Garis di atas = tanah atau permukaan,Horizontal stroke = ground
 4,2,Bagian bawah seperti akar tanaman yang tumbuh ke atas,Vertical and intersecting strokes = plant growing up
+5,3,Bagian atas = atap atau tempat berlindung (⺧),⺧ = roof / shelter
+6,3,Bagian tengah = anak kecil (子),子 = child
+7,3,Bagian bawah = kaki untuk berjalan (儿),儿 = legs
+8,4,Dua garis miring = dua kaki orang berjalan,Two slanted lines = two legs walking
+9,5,Satu garis horizontal = angka satu,One horizontal line = number one
+10,6,Dua garis horizontal = angka dua,Two horizontal lines = number two
+11,7,Tiga garis horizontal = angka tiga,Three horizontal lines = number three
+12,8,Garis luar = bingkai kotak,Outer lines = box frame
+13,8,Bagian dalam = ruang kosong,Inner space = empty space
+14,9,Garis atas dan bawah = batas,Top and bottom lines = boundaries
+15,9,Bagian tengah = X silang,Middle part = crossing X
+16,10,Bagian atas = topi atau tudung,Top part = hat or cover
+17,10,Bagian bawah = kepala atau wajah,Bottom part = head or face
+18,11,Garis miring = angka tujuh,Slanted line = number seven
+19,11,Garis horizontal = penanda di atas,Horizontal line = marker above
+20,12,Dua garis miring = dua gunung,Two slanted lines = two mountains
+21,13,Bagian atas = kepala menunduk,Top part = head bowing down
+22,13,Bagian bawah = lutut yang menekuk,Bottom part = bending knee
+23,14,Garis vertikal dan horizontal = salib,Vertical and horizontal lines = cross
+24,23,Kotak = matahari di siang hari,Square = sun in daytime
+25,24,Garis vertikal = batang pohon,Vertical line = tree trunk
+26,24,Garis horizontal = akar atau dasar,Horizontal line = roots or base
+27,25,Bentuk melengkung = bulan sabit,Curved shape = crescent moon
+28,26,Bagian tengah = orang dengan tangan terangkat,Middle part = person with raised hands
+29,26,Titik-titik = percikan api,Dots = fire sparks
+30,27,Tiga garis = tiga tetes air,Three lines = three water drops
+31,28,Garis vertikal = batang pohon,Vertical line = tree trunk
+32,28,Garis horizontal = cabang pohon,Horizontal lines = tree branches
+33,30,Garis atas = sepuluh (十),Top line = ten (十)
+34,30,Garis bawah = permukaan tanah,Bottom line = ground surface
+35,37,Garis pendek = penanda atas,Short line = top marker
+36,37,Garis panjang = garis dasar,Long line = base line
+37,38,Garis panjang = garis dasar,Long line = base line
+38,38,Titik = penanda bawah,Dot = bottom marker
+39,39,Kotak = wadah atau ruang,Square = container or space
+40,39,Garis vertikal = pembagi tengah,Vertical line = middle divider
+41,40,Garis horizontal = kepala,Horizontal line = head
+42,40,Garis vertikal = badan,Vertical line = body
+43,40,Dua garis miring = tangan terbuka,Two slanted lines = open arms
+44,41,Garis tengah = batang utama,Middle line = main stem
+45,41,Dua titik samping = cabang kecil,Two side dots = small branches
+46,58,Bagian atas = mata (目),Top part = eye (目)
+47,58,Bagian bawah = kaki berjalan (儿),Bottom part = walking legs (儿)
+48,69,Dua garis miring = orang masuk pintu,Two slanted lines = person entering door
+49,70,Garis horizontal atas = atap,Top horizontal line = roof
+50,70,Garis vertikal = tiang penyangga,Vertical line = support pole
+51,70,Garis horizontal bawah = dasar,Bottom horizontal line = foundation

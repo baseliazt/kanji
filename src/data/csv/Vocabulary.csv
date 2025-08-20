@@ -3,5 +3,120 @@ id,kanji_id,word,kana,kanji,romaji,image_url,id-ID,en-US
 2,1,お先に,おさきに,さき,osakini,,duluan,ahead
 3,1,先月,せんげつ,せん,sengetsu,,bulan lalu,last month
 4,2,生活,せいかつ,せい,seikatsu,,kehidupan,living
-5,2,生徒,せい と,せい,seito,,murid,student
+5,2,生徒,せいと,せい,seito,,murid,student
+6,3,学校,がっこう,がく,gakkou,,sekolah,school
+7,3,学生,がくせい,がく,gakusei,,pelajar,student
+8,4,人,ひと,ひと,hito,,orang,person
+9,4,日本人,にほんじん,じん,nihonjin,,orang Jepang,Japanese person
+10,5,一つ,ひとつ,ひとつ,hitotsu,,satu,one
+11,5,一人,ひとり,ひと,hitori,,satu orang,one person
+12,6,二つ,ふたつ,ふたつ,futatsu,,dua,two
+13,6,二人,ふたり,ふた,futari,,dua orang,two people
+14,7,三つ,みっつ,みっつ,mittsu,,tiga,three
+15,7,三人,さんにん,さん,sannin,,tiga orang,three people
+16,8,四つ,よっつ,よっつ,yottsu,,empat,four
+17,8,四時,よじ,よ,yoji,,jam empat,four o'clock
+18,9,五つ,いつつ,いつつ,itsutsu,,lima,five
+19,9,五時,ごじ,ご,goji,,jam lima,five o'clock
+20,10,六つ,むっつ,むっつ,muttsu,,enam,six
+21,10,六時,ろくじ,ろく,rokuji,,jam enam,six o'clock
+22,11,七つ,ななつ,ななつ,nanatsu,,tujuh,seven
+23,11,七時,しちじ,しち,shichiji,,jam tujuh,seven o'clock
+24,12,八つ,やっつ,やっつ,yattsu,,delapan,eight
+25,12,八時,はちじ,はち,hachiji,,jam delapan,eight o'clock
+26,13,九つ,ここのつ,ここのつ,kokonotsu,,sembilan,nine
+27,13,九時,くじ,く,kuji,,jam sembilan,nine o'clock
+28,14,十,じゅう,じゅう,juu,,sepuluh,ten
+29,14,十時,じゅうじ,じゅう,juuji,,jam sepuluh,ten o'clock
+30,15,百,ひゃく,ひゃく,hyaku,,seratus,hundred
+31,16,千,せん,せん,sen,,seribu,thousand
+32,17,一万,いちまん,いち,ichiman,,sepuluh ribu,ten thousand
+33,18,円,えん,えん,en,,yen,yen
+34,18,百円,ひゃくえん,ひゃく,hyakuen,,seratus yen,hundred yen
+35,19,時間,じかん,じ,jikan,,waktu,time
+36,19,何時,なんじ,なん,nanji,,jam berapa,what time
+37,20,分,ふん,ふん,fun,,menit,minute
+38,20,十分,じゅうふん,じゅう,juufun,,sepuluh menit,ten minutes
+39,21,半分,はんぶん,はん,hanbun,,setengah,half
+40,21,時半,じはん,じ,jihan,,setengah jam,half past
+41,22,何,なに,なに,nani,,apa,what
+42,22,何時,なんじ,なん,nanji,,jam berapa,what time
+43,23,今日,きょう,きょう,kyou,,hari ini,today
+44,23,日本,にほん,にち,nihon,,Jepang,Japan
+45,24,日本,にほん,ほん,nihon,,Jepang,Japan
+46,24,本,ほん,ほん,hon,,buku,book
+47,25,月曜日,げつようび,げつ,getsuyoubi,,hari Senin,Monday
+48,25,今月,こんげつ,こん,kongetsu,,bulan ini,this month
+49,26,火曜日,かようび,か,kayoubi,,hari Selasa,Tuesday
+50,27,水曜日,すいようび,すい,suiyoubi,,hari Rabu,Wednesday
+51,27,水,みず,みず,mizu,,air,water
+52,28,木曜日,もくようび,もく,mokuyoubi,,hari Kamis,Thursday
+53,28,木,き,き,ki,,pohon,tree
+54,29,金曜日,きんようび,きん,kinyoubi,,hari Jumat,Friday
+55,29,お金,おかね,かね,okane,,uang,money
+56,30,土曜日,どようび,ど,doyoubi,,hari Sabtu,Saturday
+57,31,今年,ことし,こと,kotoshi,,tahun ini,this year
+58,31,去年,きょねん,きょ,kyonen,,tahun lalu,last year
+59,32,今,いま,いま,ima,,sekarang,now
+60,32,今日,きょう,きょう,kyou,,hari ini,today
+61,33,毎日,まいにち,まい,mainichi,,setiap hari,every day
+62,33,毎週,まいしゅう,まい,maishuu,,setiap minggu,every week
+63,34,午前,ごぜん,ご,gozen,,pagi,morning (AM)
+64,34,午後,ごご,ご,gogo,,siang,afternoon (PM)
+65,35,前,まえ,まえ,mae,,depan,front
+66,35,午前,ごぜん,ぜん,gozen,,pagi,morning
+67,36,後,あと,あと,ato,,setelah,after
+68,36,午後,ごご,ご,gogo,,siang,afternoon
+69,37,上,うえ,うえ,ue,,atas,above
+70,37,上手,じょうず,じょう,jouzu,,pandai,skillful
+71,38,下,した,した,shita,,bawah,below
+72,38,下手,へた,へた,heta,,tidak pandai,unskillful
+73,39,中,なか,なか,naka,,dalam,inside
+74,39,中学校,ちゅうがっこう,ちゅう,chuugakkou,,SMP,junior high school
+75,40,大きい,おおきい,おお,ookii,,besar,big
+76,40,大学,だいがく,だい,daigaku,,universitas,university
+77,41,小さい,ちいさい,ちい,chiisai,,kecil,small
+78,41,小学校,しょうがっこう,しょう,shougakkou,,SD,elementary school
+79,42,高い,たかい,たか,takai,,tinggi/mahal,high/expensive
+80,42,高校,こうこう,こう,koukou,,SMA,high school
+81,43,安い,やすい,やす,yasui,,murah,cheap
+82,44,新しい,あたらしい,あたら,atarashii,,baru,new
+83,44,新聞,しんぶん,しん,shinbun,,koran,newspaper
+84,45,古い,ふるい,ふる,furui,,lama,old
+85,46,長い,ながい,なが,nagai,,panjang,long
+86,47,短い,みじかい,みじか,mijikai,,pendek,short
+87,48,多い,おおい,おお,ooi,,banyak,many
+88,49,少ない,すくない,すく,sukunai,,sedikit,few
+89,50,好き,すき,す,suki,,suka,like
+90,51,来る,くる,く,kuru,,datang,come
+91,51,来年,らいねん,らい,rainen,,tahun depan,next year
+92,52,行く,いく,い,iku,,pergi,go
+93,53,帰る,かえる,かえ,kaeru,,pulang,return home
+94,54,食べる,たべる,た,taberu,,makan,eat
+95,54,食事,しょくじ,しょく,shokuji,,makan,meal
+96,55,飲む,のむ,の,nomu,,minum,drink
+97,56,買う,かう,か,kau,,beli,buy
+98,57,売る,うる,う,uru,,jual,sell
+99,58,見る,みる,み,miru,,lihat,see
+100,59,聞く,きく,き,kiku,,dengar,hear
+101,60,話す,はなす,はな,hanasu,,bicara,speak
+102,60,電話,でんわ,わ,denwa,,telepon,telephone
+103,61,読む,よむ,よ,yomu,,baca,read
+104,62,書く,かく,か,kaku,,tulis,write
+105,63,作る,つくる,つく,tsukuru,,buat,make
+106,64,会う,あう,あう,au,,bertemu,meet
+107,64,会社,かいしゃ,かい,kaisha,,perusahaan,company
+108,65,言う,いう,い,iu,,bilang,say
+109,66,思う,おもう,おも,omou,,pikir,think
+110,67,知る,しる,し,shiru,,tahu,know
+111,68,出る,でる,で,deru,,keluar,exit
+112,68,出かける,でかける,で,dekakeru,,pergi keluar,go out
+113,69,入る,はいる,はい,hairu,,masuk,enter
+114,70,立つ,たつ,た,tatsu,,berdiri,stand
+115,71,休む,やすむ,やす,yasumu,,istirahat,rest
+116,71,休み,やすみ,やす,yasumi,,liburan,holiday
+117,72,働く,はたらく,はたら,hataraku,,bekerja,work
+118,73,勉強,べんきょう,べん,benkyou,,belajar,study
+119,74,強い,つよい,つよ,tsuyoi,,kuat,strong
+120,75,友達,ともだち,とも,tomodachi,,teman,friend
 6,2,たん生日,たんじょうび,じょう,tanshoubi,,ulang tahun,birthday
